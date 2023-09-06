@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Col } from "react-bootstrap";
 import styled from "styled-components";
 import { ArrowDropDown } from "@styled-icons/material-outlined/ArrowDropDown";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -13,13 +13,22 @@ import PreviewContainer from "./PreviewContainer";
 import { Row } from "react-bootstrap";
 import BestTabComponent from "./BestTabComponent";
 import BestTabComponent2 from "./BestTabComponent2";
+import { useParams, useSearchParams } from "react-router-dom";
 
 function valuetext(value) {
   return `$${value}`;
 }
 
 export default function SecondPage() {
+  const val = useParams().category;
+  console.log(val);
   const [value, setValue] = useState([2000, 3200]);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/category/${val}`)
+      .then((res) => res.json())
+      .then((json) => setCategories(json));
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -245,10 +254,11 @@ export default function SecondPage() {
             </Box>
           </div>
         </Col>
-        <Col lg={9} style={{ height: "1000px", border: "2px solid red" }}>
+        <Col lg={9} style={{ border: "2px solid red" }}>
           <BestTabComponent />
-          <PreviewContainer />
-          <PreviewContainer />
+          {categories.map((e) => (
+            <PreviewContainer category={e} />
+          ))}
         </Col>
       </Row>
     </Container>

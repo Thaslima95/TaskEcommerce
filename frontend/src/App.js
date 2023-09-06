@@ -14,6 +14,7 @@ import NavbarComponent from './Components/NavbarComponent';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './Components/Home';
 import ThirdPage from './Components/ThirdPage';
+import SingleProduct from './Components/SingleProduct';
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
   <Routes>
   <Route path='/' element={<HeaderComponent/>}>
    <Route  index  element={<Home/>}/>
-    <Route path="/next" element={<SecondPage/>}/>
+    <Route path="/category/:category" element={<SecondPage/>}/>
     <Route path="/third" element={<ThirdPage/>}/>
+    <Route path="/single/:id" element={<SingleProduct/>}/>
+
     </Route>
     
   

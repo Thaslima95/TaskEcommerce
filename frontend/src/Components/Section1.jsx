@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MainImg from "../main-tech.png";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 export default function Section1() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -15,11 +16,13 @@ export default function Section1() {
   return (
     <Container>
       <Row>
-        <Col style={{ border: "2px solid red" }} xs={3}>
+        <Col lg={3}>
           <nav class="nav flex-column nav-pills mb-3 mb-lg-0">
             {categories.map((c) => (
               <a class="nav-link" aria-current="page" href="#">
-                {c[0].toUpperCase() + c.slice(1)}
+                <Link to={`/category/${c}`}>
+                  {c[0].toUpperCase() + c.slice(1)}
+                </Link>
               </a>
             ))}
           </nav>

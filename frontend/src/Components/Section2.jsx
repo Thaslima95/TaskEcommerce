@@ -6,15 +6,32 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useState } from "react";
 export default function Section2() {
+  const [categories, setCategories] = useState([]);
   const [specificCategories, setSpecificCategories] = useState([]);
+  const spclCategory = [];
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/electronics")
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((res) => res.json())
+      .then((json) => setCategories(json));
+  }, [categories]);
+  const spclcategories = (value) => {
+    fetch(`https://fakestoreapi.com/products/category/${value}?limit=1`)
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        setSpecificCategories(json);
+        spclCategory.push(json);
       });
-  }, [specificCategories]);
+  };
+  categories.map((e) => spclcategories(e));
+
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products/category/electronics")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       console.log(json);
+  //       setSpecificCategories(json);
+  //     });
+  // }, [specificCategories]);
   return (
     <Container>
       <Row>
@@ -54,12 +71,26 @@ export default function Section2() {
             return (
               <Card style={{ width: "18rem", paddingTop: "30px" }}>
                 <Card.Img
-                  style={{ width: "80%", paddingLeft: "40px" }}
+                  style={{
+                    width: "200px",
+                    height: "100px",
+                    paddingLeft: "10px",
+                    border: "2px solid red",
+                  }}
                   variant="top"
                   src={s.image}
                 />
                 <Card.Body>
-                  <Card.Title>{s.title}</Card.Title>
+                  <Card.Title
+                    style={{
+                      border: "1px solid red",
+                      fontSize: "15px",
+                      width: "200px",
+                      height: "50px",
+                    }}
+                  >
+                    {s.title}
+                  </Card.Title>
                   <Card.Text>
                     <span style={{ color: "red" }}>-40%</span>{" "}
                   </Card.Text>

@@ -3,10 +3,10 @@ import { Row } from "react-bootstrap";
 import { Container, Col, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
-export default function Section6() {
+export default function RelatedProducts() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=12")
+    fetch("https://fakestoreapi.com/products?limit=6")
       .then((res) => res.json())
       .then((json) => setProducts(json));
   }, []);

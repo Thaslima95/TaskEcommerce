@@ -10,8 +10,10 @@ import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
+import { Link } from "react-router-dom";
 
-export default function PreviewContainer() {
+export default function PreviewContainer({ category }) {
+  const { title, price, description, image, id } = category;
   function getLabelText(value: number) {
     return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
   }
@@ -36,7 +38,15 @@ export default function PreviewContainer() {
     <Row>
       <Box className="col-xl-3 col-md-8">
         <a href="#">
-          <img src={first} alt="" />
+          <Card.Img
+            style={{
+              width: "220px",
+              height: "180px",
+              paddingLeft: "10px",
+            }}
+            variant="top"
+            src={image}
+          />
         </a>
       </Box>
       <Box
@@ -51,11 +61,11 @@ export default function PreviewContainer() {
         />
         <Card style={{ border: "none" }}>
           <Card.Body className="text-left">
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>{title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              $57887.0
-              <span>
-                <strike>$76564</strike>
+              ${price}
+              <span className="px-2">
+                <strike>${Number(price) + 467}</strike>
               </span>
             </Card.Subtitle>
 
@@ -90,12 +100,11 @@ export default function PreviewContainer() {
                 <Box sx={{ ml: 2 }}>Free Shipping</Box>
               </Box>
             </Card.Text>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
+            <Card.Text>{`${
+              description && description.substring(0, 80)
+            }...`}</Card.Text>
             <Card.Link href="#" style={{ color: "blue" }}>
-              View Details
+              <Link to={`/single/${id}`}>View Details</Link>
             </Card.Link>
           </Card.Body>
         </Card>

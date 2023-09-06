@@ -35,9 +35,9 @@ export default function GridContainer() {
   return (
     <Row>
       {Array.from(Array(9)).map((_, index) => (
-        <Col style={{ border: "2px solid purple", height: "300px" }} xl={4}>
+        <Col style={{ border: "2px solid purple", height: "400px" }} xl={4}>
           <a href="#">
-            <img className="img-height" src={first} alt="" height="100px" />
+            <img className="img-height" src={first} alt="" />
           </a>
 
           <Checkbox

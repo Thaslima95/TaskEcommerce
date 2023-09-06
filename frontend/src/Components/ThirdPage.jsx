@@ -50,12 +50,7 @@ export default function ThirdPage() {
   return (
     <Container className="d-flex mx-auto">
       <Row>
-        <Col
-          lg={3}
-          md={0}
-          sm={0}
-          style={{ height: "1000px", border: "2px solid green" }}
-        >
+        <Col lg={3} md={0} sm={0} style={{ border: "2px solid green" }}>
           <div className="mb-40">
             <div
               style={{
@@ -246,7 +241,7 @@ export default function ThirdPage() {
             </Box>
           </div>
         </Col>
-        <Col lg={9} style={{ height: "1000px", border: "2px solid red" }}>
+        <Col lg={9} style={{ border: "2px solid red" }}>
           <BestTabComponent />
           <GridContainer />
         </Col>

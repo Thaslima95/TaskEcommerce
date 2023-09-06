@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import SvgComponent from "./SvgComponent";
 
 export default function Section7() {
   return (
@@ -15,9 +16,10 @@ export default function Section7() {
           >
             <Card.Img
               variant="top"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+              src={<SvgComponent />}
               style={{ height: "150px" }}
             />
+            <SvgComponent />
             <div
               style={{
                 border: "1px solid black",

@@ -17,7 +17,7 @@ export default function BestTabComponent() {
     <Container>
       <Row>
         <Col style={{ border: "1px solid Black" }} lg={{ span: 6 }}>
-          Hello
+          products in
         </Col>
         <Col
           style={{ border: "1px solid Black", display: "flex" }}

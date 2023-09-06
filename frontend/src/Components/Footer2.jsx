@@ -12,10 +12,7 @@ export default function Footer2() {
   return (
     <Container style={{ border: "2px solid red" }}>
       <Row>
-        <Col
-          lg={{ offset: 1.5, span: 3 }}
-          style={{ border: "2px solid black" }}
-        >
+        <Col lg={{ span: 3 }} style={{ border: "2px solid black" }}>
           <Row className="px-4">
             <a href="">
               <img src={EcommLogo} alt="" />
@@ -30,11 +27,11 @@ export default function Footer2() {
           <Twitter className="mx-2" />
         </Col>
         <Col
-          lg={{ offset: 1.5, span: 7 }}
+          lg={{ span: 8 }}
           style={{ border: "2px solid black", display: "flex" }}
         >
           <Col
-            lg={{ offset: 1.5, span: 4 }}
+            lg={{ span: 4 }}
             style={{ border: "2px solid black" }}
             className="text-center"
           >
@@ -42,14 +39,14 @@ export default function Footer2() {
             <nav>
               <ul>
                 <li>About us</li>
-                <li>About us</li>
-                <li>About us</li>
-                <li>About us</li>
+                <li>Find store</li>
+                <li>Categories</li>
+                <li>Blogs</li>
               </ul>
             </nav>
           </Col>
           <Col
-            lg={{ offset: 1.5, span: 4 }}
+            lg={{ span: 3 }}
             style={{ border: "2px solid black" }}
             className="text-center"
           >
@@ -57,14 +54,14 @@ export default function Footer2() {
             <nav>
               <ul>
                 <li>About us</li>
-                <li>About us</li>
-                <li>About us</li>
-                <li>About us</li>
+                <li>Find store</li>
+                <li>Categories</li>
+                <li>Blogs</li>
               </ul>
             </nav>
           </Col>
           <Col
-            lg={{ offset: 1.5, span: 4 }}
+            lg={{ span: 3 }}
             style={{ border: "2px solid black" }}
             className="text-center"
           >
@@ -72,17 +69,29 @@ export default function Footer2() {
             <nav>
               <ul>
                 <li>About us</li>
+                <li>Find store</li>
+                <li>Categories</li>
+                <li>Blogs</li>
+              </ul>
+            </nav>
+          </Col>
+          <Col
+            lg={{ span: 3 }}
+            style={{ border: "2px solid black" }}
+            className="text-center"
+          >
+            <b>For Users</b>
+            <nav>
+              <ul>
                 <li>About us</li>
-                <li>About us</li>
-                <li>About us</li>
+                <li>Find store</li>
+                <li>Categories</li>
+                <li>Blogs</li>
               </ul>
             </nav>
           </Col>
         </Col>
-        <Col
-          lg={{ offset: 1.5, span: 2 }}
-          style={{ border: "2px solid black" }}
-        >
+        <Col lg={{ span: 1 }} style={{ border: "2px solid black" }}>
           <b>Get App</b>
           <a href="">
             <img src={Store} alt="" />

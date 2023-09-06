@@ -3,39 +3,25 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MainImg from "../main-tech.png";
+import { useState, useEffect } from "react";
 export default function Section1() {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((res) => res.json())
+      .then((json) => setCategories(json));
+  }, [categories]);
+
   return (
     <Container>
       <Row>
         <Col style={{ border: "2px solid red" }} xs={3}>
           <nav class="nav flex-column nav-pills mb-3 mb-lg-0">
-            <a class="nav-link" aria-current="page" href="#">
-              Electronics
-            </a>
-            <a class="nav-link" href="#">
-              Clothes and wear
-            </a>
-            <a class="nav-link" href="#">
-              Home interiors
-            </a>
-            <a class="nav-link" href="#">
-              Computer and tech
-            </a>
-            <a class="nav-link" href="#">
-              Tools, equipments
-            </a>
-            <a class="nav-link" href="#">
-              Sports and outdoor
-            </a>
-            <a class="nav-link" href="#">
-              Animal and pets
-            </a>
-            <a class="nav-link" href="#">
-              Machinery tools
-            </a>
-            <a class="nav-link" href="#">
-              Other products
-            </a>
+            {categories.map((c) => (
+              <a class="nav-link" aria-current="page" href="#">
+                {c[0].toUpperCase() + c.slice(1)}
+              </a>
+            ))}
           </nav>
         </Col>
         <Col xs={6} md="auto">

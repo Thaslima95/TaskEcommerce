@@ -25,7 +25,7 @@ export default function Section1() {
         left: "130px",
         width: "1180px",
         height: "400px",
-        border: "1px solid red",
+        // border: "1px solid red",
         margin: "0px",
         padding: "0px",
       }}
@@ -34,7 +34,7 @@ export default function Section1() {
         <Col
           lg={2}
           style={{
-            border: "1px solid red",
+            // border: "1px solid red",
             width: "250px",
             height: "360px",
           }}
@@ -87,14 +87,14 @@ export default function Section1() {
           </a>
           <Col style={{ poisition: "absolute", top: "50px" }}>
             {" "}
-            <Typography>Hello</Typography>
+            {/* <Typography>Hello</Typography> */}
           </Col>
         </Col>
 
         <Col lg={2}>
           <Col
             style={{
-              border: "1px solid blue",
+              // border: "1px solid blue",
               width: "200px",
               height: "150px",
               borderRadius: "6px",
@@ -103,9 +103,12 @@ export default function Section1() {
           >
             <Col
               style={{
-                border: "1px solid red",
+                // border: "1px solid red",
                 width: "112px",
                 height: "38px",
+                left: "1000px",
+                top: "650",
+                position: "absolute",
               }}
             >
               <Typography
@@ -131,19 +134,21 @@ export default function Section1() {
                 padding: "0px 10px 0px 10px",
                 borderRadius: "6px",
                 gap: "10px",
-                border: "1px solid green",
+                // border: "1px solid green",
               }}
             >
               <Button
                 style={{
                   width: "180px",
                   height: "30px",
-                  // top: "253px",
-                  // left: 1100px
+                  top: "100px",
+                  left: "920px",
+                  position: "absolute",
                   padding: "0px 10px 0px 10px",
                   borderRadius: "6px",
                   gap: "10px",
-                  border: "1px solid green",
+                  // border: "1px solid green",
+                  background: "blue",
                 }}
                 Content="btn-text"
                 Color="primary"
@@ -160,7 +165,7 @@ export default function Section1() {
                 padding: "0px 10px 0px 10px",
                 borderRadius: "6px",
                 gap: "10px",
-                border: "1px solid green",
+                // border: "1px solid green",
               }}
             >
               <Button
@@ -169,10 +174,14 @@ export default function Section1() {
                   height: "30px",
                   // top: "253px",
                   // left: 1100px
+                  top: "75px",
+                  left: "920px",
                   padding: "0px 10px 0px 10px",
                   borderRadius: "6px",
                   gap: "10px",
-                  border: "1px solid green",
+                  // border: "1px solid green",
+                  background: "blue",
+                  position: "absolute",
                 }}
                 Content="btn-text"
                 Color="primary"

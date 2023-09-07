@@ -38,7 +38,7 @@ export default function Section2() {
         left: "130px",
         borderRadius: "4px",
         position: "absolute",
-        border: "1px solid green",
+        // border: "1px solid green",
         display: "flex",
       }}
     >
@@ -50,7 +50,7 @@ export default function Section2() {
           // left: "150px",
           borderRadius: "4px",
           // position: "absolute",
-          border: "1px solid brown",
+          // border: "1px solid brown",
         }}
       >
         <Col style={{ width: "155px", height: "28px" }}>
@@ -90,6 +90,7 @@ export default function Section2() {
             height: "50px",
             display: "flex",
             borderRadius: "4px",
+            gap: "2px",
           }}
         >
           <Col
@@ -128,7 +129,7 @@ export default function Section2() {
                   color: " #FFFFFF",
                 }}
               >
-                Sec
+                Days
               </Typography>
             </Col>
           </Col>
@@ -168,7 +169,7 @@ export default function Section2() {
                   color: " #FFFFFF",
                 }}
               >
-                Sec
+                Hours
               </Typography>
             </Col>
           </Col>
@@ -208,7 +209,47 @@ export default function Section2() {
                   color: " #FFFFFF",
                 }}
               >
-                Sec
+                Min
+              </Typography>
+            </Col>
+          </Col>
+          <Col
+            style={{
+              width: "45px",
+              height: "50px",
+              background: " #606060",
+
+              borderRadius: "4px",
+            }}
+          >
+            <Col style={{ width: "21px", height: "19px" }}>
+              <Typography
+                style={{
+                  fontFamily: "Inter",
+                  fontSize: "16px",
+                  fontWeight: "700",
+                  lineHeight: "19px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                56
+              </Typography>
+            </Col>
+            <Col style={{ width: "22px", height: "15px" }}>
+              <Typography
+                style={{
+                  fontFamily: " Inter",
+                  fontSize: " 12px",
+                  fontWeight: "400",
+                  lineHeight: "15px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                Secs
               </Typography>
             </Col>
           </Col>
@@ -221,7 +262,7 @@ export default function Section2() {
               style={{
                 width: "179px",
                 height: "235px",
-                border: "1px solid purple",
+                // border: "1px solid purple",
               }}
             >
               <Card.Img

@@ -20,6 +20,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CartPage from './Components/CartPage';
+import SingleGrid from './Components/SingleGrid';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
     </Route>
     <Route path="/cart" element={<CartPage/>}/>
+    <Route path="/singlegrid" element={<SingleGrid/>}/>
     
   
   </Routes>

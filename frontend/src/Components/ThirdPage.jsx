@@ -14,6 +14,7 @@ import { Row } from "react-bootstrap";
 import BestTabComponent from "./BestTabComponent";
 import BestTabComponent2 from "./BestTabComponent2";
 import GridContainer from "./GridContainer";
+import SingleGrid from "./SingleGrid";
 
 function valuetext(value) {
   return `$${value}`;
@@ -243,7 +244,8 @@ export default function ThirdPage() {
         </Col>
         <Col lg={9} style={{ border: "2px solid red" }}>
           <BestTabComponent />
-          <GridContainer />
+          {/* <GridContainer /> */}
+          {/* <SingleGrid /> */}
         </Col>
       </Row>
     </Container>

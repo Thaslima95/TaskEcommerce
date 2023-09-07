@@ -15,6 +15,11 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './Components/Home';
 import ThirdPage from './Components/ThirdPage';
 import SingleProduct from './Components/SingleProduct';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 function App() {
   return (

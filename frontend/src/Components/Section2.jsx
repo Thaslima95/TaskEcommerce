@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useState } from "react";
+import Typography from "@mui/material/Typography";
 export default function Section2() {
   const [categories, setCategories] = useState([]);
   const [specificCategories, setSpecificCategories] = useState([]);
@@ -33,33 +34,45 @@ export default function Section2() {
   //     });
   // }, [specificCategories]);
   return (
-    <Container style={{ position: "absolute", top: "692px" }}>
+    <Container
+      style={{
+        border: "1px solid red",
+        position: "absolute",
+        top: "692px",
+        left: "130px",
+      }}
+    >
       <Row>
-        <Col xs={3} style={{ border: "1px solid blue" }}>
-          <aside>
-            <header>
-              <h3>Deals and offers</h3>
-              <p>Hygiene equipments</p>
-            </header>
-            <div className="timer">
-              <div>
-                <span className="times">04</span> <br />
-                <small style={{ color: "#ffff" }}>Days</small>
-              </div>
-              <div>
-                <span className="times">12</span> <br />{" "}
-                <small style={{ color: "#ffff" }}>Hours</small>
-              </div>
-              <div>
-                <span className="times">58</span> <br />
-                <small style={{ color: "#ffff" }}>Min</small>
-              </div>
-              <div>
-                <span className="times">02</span>
-                <br /> <small style={{ color: "#ffff" }}>Sec</small>
-              </div>
+        <Col xs={3} style={{ border: "1px solid blue", height: "150px" }}>
+          <header>
+            <Typography variant="h4" gutterBottom>
+              Deals and Offers
+            </Typography>
+            <p>Hygiene equipments</p>
+          </header>
+          <div className="timer">
+            <div style={{ marginTop: "0px" }}>
+              <span className="times">04</span> <br />
+              <small style={{ color: "#ffff", paddingLeft: "15px" }}>
+                Days
+              </small>
             </div>
-          </aside>
+            <div>
+              <span className="times">12</span> <br />{" "}
+              <small style={{ color: "#ffff", paddingLeft: "15px" }}>
+                Hours
+              </small>
+            </div>
+            <div>
+              <span className="times">58</span> <br />
+              <small style={{ color: "#ffff", paddingLeft: "15px" }}>Min</small>
+            </div>
+            <div>
+              <span className="times">02</span>
+              <br />{" "}
+              <small style={{ color: "#ffff", paddingLeft: "15px" }}>Sec</small>
+            </div>
+          </div>
         </Col>
         <Col
           xs={9}

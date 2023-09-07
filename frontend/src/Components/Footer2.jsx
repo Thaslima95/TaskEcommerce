@@ -10,7 +10,15 @@ import Store from "../Store.png";
 
 export default function Footer2() {
   return (
-    <Container style={{ border: "2px solid red" }}>
+    <Container
+      style={{
+        border: "2px solid red",
+        width: "1440px",
+        height: "324px",
+        top: "3242px",
+        position: "absolute",
+      }}
+    >
       <Row>
         <Col lg={{ span: 3 }} style={{ border: "2px solid black" }}>
           <Row className="px-4">

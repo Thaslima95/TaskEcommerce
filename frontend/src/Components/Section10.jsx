@@ -3,7 +3,15 @@ import { Col, Row, Container } from "react-bootstrap";
 
 export default function Section10() {
   return (
-    <Container>
+    <Container
+      style={{
+        width: "1440px",
+        height: "190px",
+        top: "3052px",
+        position: "absolute",
+        border: "1px solid green",
+      }}
+    >
       <Row>
         <Col
           lg={{ offset: 2.5, span: 6, offset: 2.5 }}

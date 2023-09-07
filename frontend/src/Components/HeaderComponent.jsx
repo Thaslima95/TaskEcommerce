@@ -8,11 +8,13 @@ import { BorderLeft } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { User } from "@styled-icons/remix-fill/User";
 import { Message } from "@styled-icons/boxicons-regular/Message";
+import Typography from "@mui/material/Typography";
 import { HeartFill } from "styled-icons/bootstrap";
 import { CartFill } from "styled-icons/bootstrap";
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 import { Profile } from "styled-icons/remix-line";
 import NavbarComponent from "./NavbarComponent";
@@ -26,15 +28,44 @@ export default function HeaderComponent() {
   }, [categories]);
   return (
     <>
-      <Container>
+      <Container
+        style={{
+          border: "1px solid red",
+          width: "1440px",
+          height: "86px",
+          margin: "0px",
+          padding: "0px",
+        }}
+      >
         <Row>
           <Col xl={2} md={4} sm={6}>
-            <a href="">
-              <img src={EcommLogo} alt="" />
+            <a href="#">
+              <Card.Img
+                style={{
+                  width: "150px",
+                  height: "46px",
+                  paddingLeft: "10px",
+                  position: "absolute",
+                  top: "20px",
+                  left: "130px",
+                }}
+                variant="top"
+                src={EcommLogo}
+              />
             </a>
           </Col>
           <Col
-            style={{ display: "flex" }}
+            style={{
+              display: "flex",
+              width: "665px",
+              height: "40px",
+              position: "absolute",
+              left: "326px",
+              top: "20px",
+              // border: "1px solid red",
+              margin: "0px",
+              padding: "0px",
+            }}
             xl={6}
             md={8}
             sm={4}
@@ -46,14 +77,12 @@ export default function HeaderComponent() {
                 type="text"
                 placeholder="Large text"
                 style={{
-                  position: "relative",
                   height: "40px",
                   borderLeft: "1px solid #0D6EFD",
                   borderTop: "1px solid #0D6EFD",
                   borderBottom: "1px solid #0D6EFD",
                   borderTopLeftRadius: "5px",
                   borderBottomLeftRadius: "5px",
-                  top: "22px",
                 }}
               />
             </Col>
@@ -64,7 +93,6 @@ export default function HeaderComponent() {
                   id="dropdown-basic"
                   className="btn btn-primary"
                   style={{
-                    position: "absolute",
                     background: "white",
                     color: "black",
                     width: "100%",
@@ -76,7 +104,6 @@ export default function HeaderComponent() {
                     borderBottomLeftRadius: "0px",
                     borderTopRightRadius: "0px",
                     borderBottomRightRadius: "0px",
-                    top: "22px",
                   }}
                 >
                   All Categories
@@ -95,63 +122,104 @@ export default function HeaderComponent() {
               <Button
                 variant="primary"
                 style={{
-                  position: "absolute",
                   background: "#127FFF",
                   color: "White",
                   width: "100px",
                   height: "40px",
                   borderTopLeftRadius: "0px",
                   borderBottomLeftRadius: "0px",
-                  top: "22px",
                 }}
               >
                 Search
               </Button>
             </Col>
           </Col>
-          <Col xl={4}>
-            <Box className="px-5">
+          <Col
+            xl={2}
+            style={{
+              // border: "1px solid green",
+              top: "25px",
+              left: "1080px",
+              position: "absolute",
+              display: "flex",
+            }}
+          >
+            <Col
+              style={{
+                color: "#8B96A5",
+                width: "27px",
+                height: "41px",
+                // border: "1px solid red",
+              }}
+            >
               <User
                 style={{
-                  position: "absolute",
                   color: "#8B96A5",
                   width: "20px",
                   height: "19px",
-                  top: "25px",
-                  left: "1088px",
                 }}
               />
+              <Typography style={{ fontSize: "12px" }} gutterBottom>
+                profile
+              </Typography>
+            </Col>
+            <Col
+              style={{
+                color: "#8B96A5",
+                width: "27px",
+                height: "41px",
+                // border: "1px solid red",
+              }}
+            >
               <Message
                 style={{
-                  position: "absolute",
                   color: "#8B96A5",
                   width: "20px",
                   height: "19px",
-                  top: "26px",
-                  left: "1156px",
                 }}
               />
+              <Typography style={{ fontSize: "12px" }} gutterBottom>
+                profile
+              </Typography>
+            </Col>
+            <Col
+              style={{
+                color: "#8B96A5",
+                width: "27px",
+                height: "41px",
+                // border: "1px solid red",
+              }}
+            >
               <HeartFill
                 style={{
-                  position: "absolute",
                   color: "#8B96A5",
                   width: "20px",
                   height: "19px",
-                  top: "25px",
-                  left: "1207px",
                 }}
               />
+              <Typography style={{ fontSize: "12px" }} gutterBottom>
+                profile
+              </Typography>
+            </Col>
+            <Col
+              style={{
+                color: "#8B96A5",
+                width: "27px",
+                height: "41px",
+                // border: "1px solid red",
+              }}
+            >
               <CartFill
                 style={{
-                  position: "absolute",
                   color: "#8B96A5",
                   width: "20px",
                   height: "19px",
-                  top: "25px",
-                  left: "1276px",
                 }}
               />
-            </Box>
+              <Typography style={{ fontSize: "12px" }} gutterBottom>
+                profile
+              </Typography>
+            </Col>
           </Col>
         </Row>
         <NavbarComponent />

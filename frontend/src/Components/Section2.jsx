@@ -11,18 +11,14 @@ export default function Section2() {
   const [specificCategories, setSpecificCategories] = useState([]);
   const spclCategory = [];
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => setCategories(json));
-  }, [categories]);
-  const spclcategories = (value) => {
-    fetch(`https://fakestoreapi.com/products/category/${value}?limit=1`)
+    fetch(`https://fakestoreapi.com/products/category/electronics?limit=5`)
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        spclCategory.push(json);
+        setSpecificCategories(json);
       });
-  };
+  }, [categories]);
+  const spclcategories = (value) => {};
   categories.map((e) => spclcategories(e));
 
   // useEffect(() => {
@@ -36,83 +32,265 @@ export default function Section2() {
   return (
     <Container
       style={{
-        border: "1px solid red",
-        position: "absolute",
-        top: "692px",
+        width: "1180px",
+        height: "240px",
+        top: "592px",
         left: "130px",
+        borderRadius: "4px",
+        position: "absolute",
+        border: "1px solid green",
+        display: "flex",
       }}
     >
-      <Row>
-        <Col xs={3} style={{ border: "1px solid blue", height: "150px" }}>
-          <header>
-            <Typography variant="h4" gutterBottom>
-              Deals and Offers
-            </Typography>
-            <p>Hygiene equipments</p>
-          </header>
-          <div className="timer">
-            <div style={{ marginTop: "0px" }}>
-              <span className="times">04</span> <br />
-              <small style={{ color: "#ffff", paddingLeft: "15px" }}>
-                Days
-              </small>
-            </div>
-            <div>
-              <span className="times">12</span> <br />{" "}
-              <small style={{ color: "#ffff", paddingLeft: "15px" }}>
-                Hours
-              </small>
-            </div>
-            <div>
-              <span className="times">58</span> <br />
-              <small style={{ color: "#ffff", paddingLeft: "15px" }}>Min</small>
-            </div>
-            <div>
-              <span className="times">02</span>
-              <br />{" "}
-              <small style={{ color: "#ffff", paddingLeft: "15px" }}>Sec</small>
-            </div>
-          </div>
+      <Col
+        style={{
+          width: "198px",
+          height: "113px",
+          // top: "612px",
+          // left: "150px",
+          borderRadius: "4px",
+          // position: "absolute",
+          border: "1px solid brown",
+        }}
+      >
+        <Col style={{ width: "155px", height: "28px" }}>
+          <Typography
+            style={{
+              //styleName: Title-H4;
+              fontFamily: " Inter",
+              fontSize: " 20px",
+              fontWeight: "600",
+              lineHeight: "28px",
+              letterSpacing: "-0.20000000298023224px",
+              textAlign: "left",
+            }}
+          >
+            Deals and Offers
+          </Typography>
+        </Col>
+        <Col style={{ width: "155px", height: "19px" }}>
+          <Typography
+            style={{
+              //styleName: Text-base;
+              fontFamily: "Inter",
+              fontSize: "16px",
+              fontWeight: "400",
+              lineHeight: "19px",
+              letterSpacing: "0px",
+              textAlign: "left",
+              color: " #8B96A5",
+            }}
+          >
+            Hygiene equipments
+          </Typography>
         </Col>
         <Col
-          xs={9}
-          md={9}
-          style={{ border: "1px solid green", display: "flex" }}
+          style={{
+            width: "198px",
+            height: "50px",
+            display: "flex",
+            borderRadius: "4px",
+          }}
         >
-          {specificCategories.map((e) => console.log(e))}
-          {specificCategories.map((s) => {
-            return (
-              <Card style={{ width: "18rem", paddingTop: "30px" }}>
-                <Card.Img
-                  style={{
-                    width: "200px",
-                    height: "100px",
-                    paddingLeft: "10px",
-                    border: "2px solid red",
-                  }}
-                  variant="top"
-                  src={s.image}
-                />
-                <Card.Body>
-                  <Card.Title
+          <Col
+            style={{
+              width: "45px",
+              height: "50px",
+              background: " #606060",
+
+              borderRadius: "4px",
+            }}
+          >
+            <Col style={{ width: "21px", height: "19px" }}>
+              <Typography
+                style={{
+                  fontFamily: "Inter",
+                  fontSize: "16px",
+                  fontWeight: "700",
+                  lineHeight: "19px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                56
+              </Typography>
+            </Col>
+            <Col style={{ width: "22px", height: "15px" }}>
+              <Typography
+                style={{
+                  fontFamily: " Inter",
+                  fontSize: " 12px",
+                  fontWeight: "400",
+                  lineHeight: "15px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                Sec
+              </Typography>
+            </Col>
+          </Col>
+          <Col
+            style={{
+              width: "45px",
+              height: "50px",
+              background: " #606060",
+
+              borderRadius: "4px",
+            }}
+          >
+            <Col style={{ width: "21px", height: "19px" }}>
+              <Typography
+                style={{
+                  fontFamily: "Inter",
+                  fontSize: "16px",
+                  fontWeight: "700",
+                  lineHeight: "19px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                56
+              </Typography>
+            </Col>
+            <Col style={{ width: "22px", height: "15px" }}>
+              <Typography
+                style={{
+                  fontFamily: " Inter",
+                  fontSize: " 12px",
+                  fontWeight: "400",
+                  lineHeight: "15px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                Sec
+              </Typography>
+            </Col>
+          </Col>
+          <Col
+            style={{
+              width: "45px",
+              height: "50px",
+              background: " #606060",
+
+              borderRadius: "4px",
+            }}
+          >
+            <Col style={{ width: "21px", height: "19px" }}>
+              <Typography
+                style={{
+                  fontFamily: "Inter",
+                  fontSize: "16px",
+                  fontWeight: "700",
+                  lineHeight: "19px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                56
+              </Typography>
+            </Col>
+            <Col style={{ width: "22px", height: "15px" }}>
+              <Typography
+                style={{
+                  fontFamily: " Inter",
+                  fontSize: " 12px",
+                  fontWeight: "400",
+                  lineHeight: "15px",
+                  letterSpacing: "0em",
+                  textAlign: "center",
+                  color: " #FFFFFF",
+                }}
+              >
+                Sec
+              </Typography>
+            </Col>
+          </Col>
+        </Col>
+      </Col>
+      <Col style={{ width: "895px", height: " 235px", display: "flex" }}>
+        {specificCategories.map((s) => {
+          return (
+            <Card
+              style={{
+                width: "179px",
+                height: "235px",
+                border: "1px solid purple",
+              }}
+            >
+              <Card.Img
+                style={{
+                  width: "140px",
+                  height: "140px",
+                  // top: 8px
+                  // left: 20px
+                  padding:
+                    "9.333333015441895px 19.28888511657715px 9.333331108093262px 19.288888931274414px",
+                }}
+                variant="top"
+                src={s.image}
+              />
+              <Card
+                style={{
+                  width: " 112px",
+                  height: "59px",
+
+                  borderRadius: "29px",
+                }}
+              >
+                <Card style={{ width: "112px", height: "24px" }}>
+                  <Typography
                     style={{
-                      border: "1px solid red",
-                      fontSize: "15px",
-                      width: "200px",
-                      height: "50px",
+                      //styleName: Text normal;
+                      fontFamily: "Inter",
+                      fontSize: "16px",
+                      fontWeight: "400",
+                      lineHeight: "24px",
+                      letterSpacing: "-0.20000000298023224px",
+                      textAlign: "center",
                     }}
                   >
-                    {s.title}
-                  </Card.Title>
-                  <Card.Text>
-                    <span style={{ color: "red" }}>-40%</span>{" "}
-                  </Card.Text>
-                </Card.Body>
+                    Smart watches
+                  </Typography>
+                </Card>
+                <Card
+                  style={{
+                    width: "61px",
+                    height: "28px",
+                    // top: 190px
+                    // left: 57px
+                    padding: "3px 13px 4px 13px",
+                    borderRadius: "29px",
+                    gap: "10px",
+                  }}
+                >
+                  <Card style={{ width: "35px", height: "17px" }}>
+                    <Typography
+                      style={{
+                        fontFamily: "Inter",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        lineHeight: "17px",
+                        letterSpacing: "-0.20000000298023224px",
+                        textAlign: "center",
+                        color: "#EB001B",
+                      }}
+                    >
+                      -25%
+                    </Typography>
+                  </Card>
+                </Card>
               </Card>
-            );
-          })}
-        </Col>
-      </Row>
+            </Card>
+          );
+        })}
+      </Col>
     </Container>
   );
 }

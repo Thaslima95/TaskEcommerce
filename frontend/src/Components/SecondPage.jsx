@@ -28,7 +28,7 @@ export default function SecondPage() {
     fetch(`https://fakestoreapi.com/products/category/${val}`)
       .then((res) => res.json())
       .then((json) => setCategories(json));
-  }, []);
+  }, [val]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

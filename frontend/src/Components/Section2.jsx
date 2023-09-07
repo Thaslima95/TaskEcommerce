@@ -33,7 +33,7 @@ export default function Section2() {
   //     });
   // }, [specificCategories]);
   return (
-    <Container>
+    <Container style={{ position: "absolute", top: "692px" }}>
       <Row>
         <Col xs={3} style={{ border: "1px solid blue" }}>
           <aside>

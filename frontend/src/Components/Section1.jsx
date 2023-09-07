@@ -14,9 +14,19 @@ export default function Section1() {
   }, [categories]);
 
   return (
-    <Container>
+    <Container
+      style={{
+        position: "relative",
+        top: "162px",
+        left: "50px",
+        width: "1180px",
+        height: "400px",
+        border: "1px solid red",
+      }}
+      fluid
+    >
       <Row>
-        <Col lg={3}>
+        <Col lg={2}>
           <nav class="nav flex-column nav-pills mb-3 mb-lg-0">
             {categories.map((c) => (
               <a class="nav-link" aria-current="page" href="#">
@@ -27,10 +37,10 @@ export default function Section1() {
             ))}
           </nav>
         </Col>
-        <Col xs={6} md="auto">
+        <Col lg={7} md="auto">
           <img src={MainImg} alt="" />
         </Col>
-        <Col>
+        <Col lg={3}>
           <div class="bg-primary-light p-3 rounded mb-3">
             <p class="d-flex mb-3 text-base">
               <img

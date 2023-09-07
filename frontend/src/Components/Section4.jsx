@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 
 export default function Section4() {
   return (
-    <Container>
+    <Container style={{ position: "relative", top: "1002px" }}>
       <Row>
         <Col xs={3} style={{ border: "2px solid red" }}>
           <Card.Img

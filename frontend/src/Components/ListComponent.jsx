@@ -11,19 +11,21 @@ export default function ListComponent({ category }) {
         height: "40px",
       }}
     >
-      <Typography
-        style={{
-          width: "230px",
-          height: "19px",
-          fontSize: "16px",
-          top: "11px",
-          left: "10px",
-          position: "relative",
-          color: "black",
-        }}
-      >
-        {category[0].toUpperCase() + category.slice(1)}
-      </Typography>
+      <Link to={`/category/${category}`}>
+        <Typography
+          style={{
+            width: "230px",
+            height: "19px",
+            fontSize: "16px",
+            top: "11px",
+            left: "10px",
+            position: "relative",
+            color: "black",
+          }}
+        >
+          {category[0].toUpperCase() + category.slice(1)}
+        </Typography>
+      </Link>
     </Col>
   );
 }

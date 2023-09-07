@@ -17,7 +17,7 @@ export default function NavbarComponent() {
     <Container
       style={{
         width: "1440px",
-        border: "1px solid red",
+        // border: "1px solid red",
         position: "relative",
         top: "86px",
         height: "56px",
@@ -25,10 +25,10 @@ export default function NavbarComponent() {
         padding: "0px",
       }}
     >
-      <Row style={{ border: "1px solid green" }}>
+      <Row>
         <Col
           style={{
-            border: "1px solid black",
+            // border: "1px solid black",
             width: "620px",
             height: "24px",
             top: "16px",
@@ -62,7 +62,7 @@ export default function NavbarComponent() {
               >
                 <Col
                   style={{
-                    border: "1px solid red",
+                    // border: "1px solid red",
                     width: "92px",
                     height: "22px",
                     top: "17px",
@@ -81,7 +81,7 @@ export default function NavbarComponent() {
               >
                 <Col
                   style={{
-                    border: "1px solid red",
+                    // border: "1px solid red",
                     width: "77px",
                     height: "22px",
                     top: "17px",
@@ -100,7 +100,7 @@ export default function NavbarComponent() {
               >
                 <Col
                   style={{
-                    border: "1px solid red",
+                    // border: "1px solid red",
                     width: "79px",
                     height: "22px",
                     top: "17px",
@@ -119,7 +119,7 @@ export default function NavbarComponent() {
               >
                 <Col
                   style={{
-                    border: "1px solid red",
+                    // border: "1px solid red",
                     width: "63px",
                     height: "22px",
                     top: "17px",
@@ -138,7 +138,7 @@ export default function NavbarComponent() {
               >
                 <Col
                   style={{
-                    border: "1px solid red",
+                    // border: "1px solid red",
                     width: "81px",
                     height: "22px",
                     top: "17px",
@@ -153,7 +153,7 @@ export default function NavbarComponent() {
             <Nav.Item>
               <Col
                 style={{
-                  border: "1px solid red",
+                  // border: "1px solid red",
                   width: "61px",
                   height: "24px",
                   top: "16px",

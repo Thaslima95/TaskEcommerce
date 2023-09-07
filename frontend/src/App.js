@@ -19,6 +19,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import CartPage from './Components/CartPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
     <Route path="/single/:id" element={<SingleProduct/>}/>
 
     </Route>
+    <Route path="/cart" element={<CartPage/>}/>
     
   
   </Routes>

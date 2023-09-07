@@ -30,7 +30,7 @@ export default function HeaderComponent() {
     <>
       <Container
         style={{
-          border: "1px solid red",
+          // border: "1px solid red",
           width: "1440px",
           height: "86px",
           margin: "0px",

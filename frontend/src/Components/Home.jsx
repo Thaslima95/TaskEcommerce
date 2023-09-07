@@ -24,6 +24,7 @@ export default function Home() {
       <Section7 />
       <Section8 />
       <Section10 />
+      <Footer2 />
       {/* 
       
       
@@ -32,7 +33,7 @@ export default function Home() {
       
        */}
 
-      {/* <Footer2 /> */}
+      {/*  */}
     </>
   );
 }

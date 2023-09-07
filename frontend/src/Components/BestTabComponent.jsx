@@ -14,11 +14,20 @@ export default function BestTabComponent() {
     setChecked(event.target.checked);
   };
   return (
-    <Container>
+    <Container
+      style={{
+        border: "1px solid Black",
+        width: "920px",
+        height: "62px",
+        top: "207px",
+        left: "390px",
+        borderRadius: "6px",
+        border: "1px",
+        position: "absolute",
+      }}
+    >
       <Row>
-        <Col style={{ border: "1px solid Black" }} lg={{ span: 6 }}>
-          products in
-        </Col>
+        <Col>products in</Col>
         <Col
           style={{ border: "1px solid Black", display: "flex" }}
           lg={{ span: 4 }}

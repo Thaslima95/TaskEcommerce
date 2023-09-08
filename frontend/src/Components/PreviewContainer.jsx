@@ -164,7 +164,7 @@ export default function PreviewContainer({ category }) {
                 textAlign: "left",
               }}
             >
-              $1128.00
+              <strike>$1128.00</strike>
             </Typography>
           </Card.Title>
         </Card.Title>

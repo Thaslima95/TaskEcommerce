@@ -44,6 +44,7 @@ export default function PreviewContainer({ category }) {
           // top: "289px
           // left: 390px
           // border: "1px solid green",
+          border: "none",
         }}
       >
         {/* <Checkbox
@@ -66,6 +67,7 @@ export default function PreviewContainer({ category }) {
             // border: "1px solid blue",
             top: "9px",
             left: "7px",
+            border: "none",
             position: "relative",
             padding:
               "12.133333206176758px 12.133330345153809px 13.06666374206543px 13.066666603088379px",
@@ -89,6 +91,7 @@ export default function PreviewContainer({ category }) {
             top: "23px",
             left: "229px",
             position: "absolute",
+            border: "none",
           }}
         >
           <Typography
@@ -114,6 +117,7 @@ export default function PreviewContainer({ category }) {
             position: "absolute",
             // border: "1px solid red",
             display: "flex",
+            border: "none",
           }}
         >
           <Card.Title
@@ -123,6 +127,7 @@ export default function PreviewContainer({ category }) {
               // top: "61px",
               // left: "229px",
               // position: "relative",
+              border: "none",
             }}
           >
             <Typography
@@ -136,7 +141,7 @@ export default function PreviewContainer({ category }) {
                 textAlign: "left",
               }}
             >
-              {category.price}
+              ${category.price}
             </Typography>
           </Card.Title>
           <Card.Title
@@ -146,6 +151,7 @@ export default function PreviewContainer({ category }) {
               // top: "66px",
               // left: "319px",
               // position: "absolute",
+              border: "none",
             }}
           >
             <Typography
@@ -171,6 +177,7 @@ export default function PreviewContainer({ category }) {
             position: "absolute",
             // border: "1px solid blue",
             // display: "flex",
+            border: "none",
           }}
         >
           {" "}
@@ -239,6 +246,7 @@ export default function PreviewContainer({ category }) {
             left: "229px",
             position: "absolute",
             // border: "1px solid red",
+            border: "none",
           }}
         >
           <Card.Text
@@ -249,6 +257,7 @@ export default function PreviewContainer({ category }) {
               // left: "229px",
               // position: "absolute",
               // border: "1px solid green",
+              border: "none",
             }}
           >
             <Typography
@@ -272,6 +281,7 @@ export default function PreviewContainer({ category }) {
               height: "19px",
               // top: "180px",
               // left: "229px"
+              border: "none",
             }}
           >
             <Link to={`/single/${id}`}>

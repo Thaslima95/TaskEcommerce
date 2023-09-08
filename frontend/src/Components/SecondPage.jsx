@@ -17,6 +17,8 @@ import { useParams, useSearchParams } from "react-router-dom";
 import BreadCrumbComponent from "./BreadCrumbComponent";
 import SideBarComponent from "./SideBarComponent";
 import { Card } from "react-bootstrap";
+import Footer2 from "./Footer2";
+import PaginationComponent from "./PaginationComponent";
 
 function valuetext(value) {
   return `$${value}`;
@@ -367,7 +369,7 @@ export default function SecondPage() {
             // top: 1024px
             // left: 134px
             borderRadius: "6px",
-            border: "1px solid red",
+            // border: "1px solid red",
           }}
         >
           <Card
@@ -409,7 +411,7 @@ export default function SecondPage() {
                 top: "-20px",
                 left: "180px",
                 padding: "8.295000076293945px 6px 8.295000076293945px 6px",
-                border: "3px solid red",
+                // border: "3px solid red",
               }}
               onClick={() =>
                 feature == "none" ? setFeature("flex") : setFeature("none")
@@ -499,6 +501,8 @@ export default function SecondPage() {
           <PreviewContainer category={e} />
         ))} */}
       </Container>
+      {/* <Footer2 /> */}
+      <PaginationComponent />
     </Container>
   );
 }

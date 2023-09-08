@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import CartComponent from "./CartComponent";
 export default function CartPage() {
   return (
     <Container
@@ -114,6 +115,7 @@ export default function CartPage() {
           top: "216px",
           left: "1209px",
           position: "absolute",
+          background: "#0D6EFD",
         }}
       >
         Apply
@@ -370,6 +372,7 @@ export default function CartPage() {
           position: "absolute",
         }}
       ></Container>
+      <CartPage />
     </Container>
   );
 }

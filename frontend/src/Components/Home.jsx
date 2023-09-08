@@ -11,6 +11,7 @@ import Section10 from "./Section10";
 import Section11 from "./Section11";
 import Footer from "./Footer";
 import Footer2 from "./Footer2";
+import Section3part2 from "./Section3part2";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <Section1 />
       <Section2 />
       <Section3 />
-      <Section4 />
+      <Section3part2 />
       <Section5 />
       <Section6 />
       <Section7 />

@@ -15,12 +15,14 @@ import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 
 import { Profile } from "styled-icons/remix-line";
 import NavbarComponent from "./NavbarComponent";
 export default function HeaderComponent() {
   const [categories, setCategories] = useState([]);
   const [specificCategories, setSpecificCategories] = useState([]);
+  const [, setSearchparam] = useSearchParams();
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
@@ -74,7 +76,7 @@ export default function HeaderComponent() {
             <Col xl={6}>
               <Form.Control
                 size="md"
-                type="text"
+                type="search"
                 placeholder="Large text"
                 style={{
                   height: "40px",
@@ -83,6 +85,9 @@ export default function HeaderComponent() {
                   borderBottom: "1px solid #0D6EFD",
                   borderTopLeftRadius: "5px",
                   borderBottomLeftRadius: "5px",
+                }}
+                onChange={(e) => {
+                  setSearchparam({ search: e.target.value.toLowerCase() });
                 }}
               />
             </Col>
@@ -179,7 +184,7 @@ export default function HeaderComponent() {
                 }}
               />
               <Typography style={{ fontSize: "12px" }} gutterBottom>
-                profile
+                Message
               </Typography>
             </Col>
             <Col
@@ -198,7 +203,7 @@ export default function HeaderComponent() {
                 }}
               />
               <Typography style={{ fontSize: "12px" }} gutterBottom>
-                profile
+                Orders
               </Typography>
             </Col>
             <Col
@@ -217,7 +222,7 @@ export default function HeaderComponent() {
                 }}
               />
               <Typography style={{ fontSize: "12px" }} gutterBottom>
-                profile
+                Cart
               </Typography>
             </Col>
           </Col>

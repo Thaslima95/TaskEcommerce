@@ -12,7 +12,7 @@ export default function RelatedProducts() {
   }, []);
   return (
     <Container>
-      <Row>Recommended Items</Row>
+      <Row>Related Products</Row>
       <Row>
         {console.log(products)}
         {products.map((e, index) => (
@@ -28,7 +28,7 @@ export default function RelatedProducts() {
                     width: "200px",
                     height: "200px",
                     paddingLeft: "10px",
-                    border: "2px solid red",
+                    // border: "2px solid red",
                   }}
                   variant="top"
                   src={e.image}

@@ -12,7 +12,7 @@ export default function Footer2() {
   return (
     <Container
       style={{
-        border: "2px solid red",
+        // border: "2px solid red",
         width: "1440px",
         height: "324px",
         top: "3242px",
@@ -20,7 +20,14 @@ export default function Footer2() {
       }}
     >
       <Row>
-        <Col lg={{ span: 3 }} style={{ border: "2px solid black" }}>
+        <Col
+          lg={{ span: 3 }}
+          style={{
+            // border: "2px solid black",
+            top: "50px",
+            position: "relative",
+          }}
+        >
           <Row className="px-4">
             <a href="">
               <img src={EcommLogo} alt="" />
@@ -36,11 +43,16 @@ export default function Footer2() {
         </Col>
         <Col
           lg={{ span: 8 }}
-          style={{ border: "2px solid black", display: "flex" }}
+          style={{
+            // border: "2px solid black",
+            display: "flex",
+            top: "50px",
+            position: "relative",
+          }}
         >
           <Col
             lg={{ span: 4 }}
-            style={{ border: "2px solid black" }}
+            // style={{ border: "2px solid black" }}
             className="text-center"
           >
             <b>About Us</b>
@@ -55,7 +67,7 @@ export default function Footer2() {
           </Col>
           <Col
             lg={{ span: 3 }}
-            style={{ border: "2px solid black" }}
+            // style={{ border: "2px solid black" }}
             className="text-center"
           >
             <b>About Us</b>
@@ -70,7 +82,7 @@ export default function Footer2() {
           </Col>
           <Col
             lg={{ span: 3 }}
-            style={{ border: "2px solid black" }}
+            // style={{ border: "2px solid black" }}
             className="text-center"
           >
             <b>About Us</b>
@@ -85,7 +97,7 @@ export default function Footer2() {
           </Col>
           <Col
             lg={{ span: 3 }}
-            style={{ border: "2px solid black" }}
+            // style={{ border: "2px solid black" }}
             className="text-center"
           >
             <b>For Users</b>
@@ -99,7 +111,14 @@ export default function Footer2() {
             </nav>
           </Col>
         </Col>
-        <Col lg={{ span: 1 }} style={{ border: "2px solid black" }}>
+        <Col
+          lg={{ span: 1 }}
+          style={{
+            // border: "2px solid black",
+            top: "50px",
+            position: "relative",
+          }}
+        >
           <b>Get App</b>
           <a href="">
             <img src={Store} alt="" />

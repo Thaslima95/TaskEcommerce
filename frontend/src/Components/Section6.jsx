@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 import { Container, Col, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Section6() {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ export default function Section6() {
           height: "32px",
           // top: 1856px
           // left: 131px
+          border: "none",
         }}
       >
         <Typography
@@ -50,7 +52,7 @@ export default function Section6() {
           height: "640px",
           // top: 1912px
           // left: 130px
-          border: "1px solid red",
+          // border: "1px solid red",
           position: "absolute",
           display: "flex",
           flexWrap: "wrap",
@@ -58,79 +60,82 @@ export default function Section6() {
       >
         {products.map((e) => {
           return (
-            <Card
-              // style={{
-              //   width: "1180px",
-              //   height: "640px",
-              //   // top: 1912px
-              //   // left: 130px
-              //   border: "1px solid red",
-              // }}
-              style={{
-                width: "220px",
-                height: "310px",
-                // top: 1912px
-                // left: 130px
-                border: "1px solid blue",
-              }}
-            >
-              <Card.Img
+            <Link to={`/single/${e.id}`}>
+              <Card
+                // style={{
+                //   width: "1180px",
+                //   height: "640px",
+                //   // top: 1912px
+                //   // left: 130px
+                //   border: "1px solid red",
+                // }}
                 style={{
-                  width: "200px",
-                  height: "200px",
-                  top: "9px",
-                  left: "10px",
-                  position: "relative",
-                  padding:
-                    "14.222222328186035px 24.88888168334961px 15.11112117767334px 24.88888931274414px",
-                }}
-                src={e.image}
-              />
-              <Card.Title
-                style={{
-                  width: "65.53191375732422px",
-                  height: "21.239286422729492px",
-                  // top: 223px
-                  // left: 16px
+                  width: "220px",
+                  height: "310px",
+                  // top: 1912px
+                  // left: 130px
+                  // border: "1px solid blue",
+                  border: "none",
                 }}
               >
-                <Typography
+                <Card.Img
                   style={{
-                    //styleName: Text-title;
-                    fontFamily: "Inter",
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    lineHeight: "22px",
-                    letterSpacing: "0px",
-                    textAlign: "left",
+                    width: "200px",
+                    height: "200px",
+                    top: "9px",
+                    left: "10px",
+                    position: "relative",
+                    padding:
+                      "14.222222328186035px 24.88888168334961px 15.11112117767334px 24.88888931274414px",
+                  }}
+                  src={e.image}
+                />
+                <Card.Title
+                  style={{
+                    width: "65.53191375732422px",
+                    height: "21.239286422729492px",
+                    // top: 223px
+                    // left: 16px
                   }}
                 >
-                  {e.price}
-                </Typography>
-              </Card.Title>
-              <Card.Title
-                style={{
-                  width: "186px",
-                  height: "53px",
-                  // top: 248.13571166992188px
-                  // left: 16.01214599609375px
-                }}
-              >
-                <Typography
+                  <Typography
+                    style={{
+                      //styleName: Text-title;
+                      fontFamily: "Inter",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      lineHeight: "22px",
+                      letterSpacing: "0px",
+                      textAlign: "left",
+                    }}
+                  >
+                    {e.price}
+                  </Typography>
+                </Card.Title>
+                <Card.Title
                   style={{
-                    //styleName: Text-info;
-                    fontFamily: "Inter",
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    lineHeight: "24px",
-                    letterSpacing: "-0.20000000298023224px",
-                    textAlign: "left",
+                    width: "186px",
+                    height: "53px",
+                    // top: 248.13571166992188px
+                    // left: 16.01214599609375px
                   }}
                 >
-                  {e.title.substring(0, 20)}
-                </Typography>
-              </Card.Title>
-            </Card>
+                  <Typography
+                    style={{
+                      //styleName: Text-info;
+                      fontFamily: "Inter",
+                      fontSize: "16px",
+                      fontWeight: "400",
+                      lineHeight: "24px",
+                      letterSpacing: "-0.20000000298023224px",
+                      textAlign: "left",
+                    }}
+                  >
+                    {e.title.substring(0, 20)}
+                  </Typography>
+                </Card.Title>
+              </Card>
+            </Link>
           );
         })}
       </Col>

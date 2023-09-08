@@ -13,7 +13,6 @@ import { Typography } from "@mui/material";
 export default function Section5() {
   return (
     <Container
-      className="mt-3"
       // style={{
       //   backgroundImage: `url(${BgImage})`,
       //   height: "400px",
@@ -24,19 +23,20 @@ export default function Section5() {
         height: "420px",
         top: "1406px",
         left: "130px",
-        border: "1px solid blue",
+        // border: "1px solid blue",
         position: "absolute",
         display: "flex",
+        backgroundImage: `url(${BgImage})`,
       }}
     >
       <Col
         style={{
           width: "440px",
           height: "139px",
-          // top: "1446px",
-          // left: "170px",
-          // position: "absolute",
-          border: "1px solid red",
+          top: "40px",
+          left: "4px",
+          position: "relative",
+          // border: "1px solid red",
         }}
       >
         <Card
@@ -45,6 +45,8 @@ export default function Section5() {
             height: "78px",
             // top: "1446px",
             // left: "170px",
+            background: "none",
+            backgroundColor: "none",
           }}
         >
           <Typography
@@ -57,6 +59,9 @@ export default function Section5() {
               letterSpacing: " -0.20000000298023224px",
               textAlign: "left",
               color: "#FFFFFF",
+              // background: "#FFFFFF",
+              background: "none",
+              backgroundColor: "none",
             }}
           >
             An easy way to send requests to all suppliers
@@ -68,6 +73,8 @@ export default function Section5() {
             height: "48px",
             // top: 1537px
             // left: 170px
+            background: "none",
+            backgroundColor: "none",
           }}
         >
           <Typography
@@ -91,9 +98,11 @@ export default function Section5() {
         style={{
           width: "491px",
           height: "346px",
-          // top: 1436px
-          // left: 788px
+          top: "30px",
+          left: "658px",
           borderRadius: "6px",
+          border: "2px solid green",
+          position: "absolute",
         }}
       >
         <Card
@@ -112,6 +121,10 @@ export default function Section5() {
               height: "28px",
               // top: 1458px
               // left: 808px
+              // top: "52px",
+              // position: "absolute",
+              top: "10px",
+              position: "relative",
             }}
           >
             <Typography
@@ -135,14 +148,20 @@ export default function Section5() {
               height: "40px",
               // top: 1504px
               // left: 808px
+              top: "25px",
+              position: "relative",
+              border: "none",
             }}
           >
             <Form.Control
               style={{
                 width: "440px",
                 height: "40px",
-                border: "1px solid blue",
+                // border: "1px solid blue",
+                top: "25px",
+                position: "relative",
               }}
+              placeholder="What item do you need?"
             ></Form.Control>
           </Card>
           <Form.Group
@@ -151,6 +170,8 @@ export default function Section5() {
               height: "73px",
               // top: 1564px
               // left: 808px
+              top: "50px",
+              position: "relative",
             }}
           >
             <Form.Control
@@ -166,21 +187,30 @@ export default function Section5() {
               height: "40px",
               // top: 1657px
               // left: 808px
+              top: "65px",
+              position: "relative",
             }}
           >
             <Form.Control
               style={{
                 width: "206px",
                 height: "40px",
-                border: "1px solid red",
+                // border: "1px solid red",
               }}
               placeholder="Quantity"
             />
           </Form.Group>
           <Form.Select
-            style={{ width: "111px", height: "40px", border: "1px" }}
+            style={{
+              width: "111px",
+              height: "40px",
+              border: "1px",
+              top: "26px",
+              position: "relative",
+              left: "250px",
+            }}
           >
-            <option>Open this select menu</option>
+            <option>PCs</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -191,6 +221,8 @@ export default function Section5() {
               height: "40px",
               // top: 1717px
               // left: 808.5px
+              top: "70px",
+              position: "relative",
               padding: "0px 16px 0px 16px",
               borderRadius: " 6px",
               gap: "10px",

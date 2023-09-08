@@ -102,7 +102,7 @@ export default function PreviewContainer({ category }) {
               textAlign: "left",
             }}
           >
-            Canon Cmera EOS 2000, Black 10x zoom
+            {category.title}
           </Typography>
         </Card.Title>
         <Card.Title

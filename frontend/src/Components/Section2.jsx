@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 export default function Section2() {
   const [categories, setCategories] = useState([]);
   const [specificCategories, setSpecificCategories] = useState([]);
@@ -258,77 +259,82 @@ export default function Section2() {
       <Col style={{ width: "895px", height: " 235px", display: "flex" }}>
         {specificCategories.map((s) => {
           return (
-            <Card
-              style={{
-                width: "179px",
-                height: "235px",
-                // border: "1px solid purple",
-              }}
-            >
-              <Card.Img
-                style={{
-                  width: "140px",
-                  height: "140px",
-                  // top: 8px
-                  // left: 20px
-                  padding:
-                    "9.333333015441895px 19.28888511657715px 9.333331108093262px 19.288888931274414px",
-                }}
-                variant="top"
-                src={s.image}
-              />
+            <Link to={`/single/${s.id}`}>
               <Card
                 style={{
-                  width: " 112px",
-                  height: "59px",
-
-                  borderRadius: "29px",
+                  width: "179px",
+                  height: "235px",
+                  // border: "1px solid purple",
                 }}
               >
-                <Card style={{ width: "112px", height: "24px" }}>
-                  <Typography
-                    style={{
-                      //styleName: Text normal;
-                      fontFamily: "Inter",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                      lineHeight: "24px",
-                      letterSpacing: "-0.20000000298023224px",
-                      textAlign: "center",
-                    }}
-                  >
-                    Smart watches
-                  </Typography>
-                </Card>
+                <Card.Img
+                  style={{
+                    width: "140px",
+                    height: "140px",
+                    // top: 8px
+                    // left: 20px
+                    padding:
+                      "9.333333015441895px 19.28888511657715px 9.333331108093262px 19.288888931274414px",
+                  }}
+                  variant="top"
+                  src={s.image}
+                />
                 <Card
                   style={{
-                    width: "61px",
-                    height: "28px",
-                    // top: 190px
-                    // left: 57px
-                    padding: "3px 13px 4px 13px",
+                    width: " 112px",
+                    height: "59px",
+                    border: "none",
                     borderRadius: "29px",
-                    gap: "10px",
                   }}
                 >
-                  <Card style={{ width: "35px", height: "17px" }}>
+                  <Card style={{ width: "112px", height: "24px" }}>
                     <Typography
                       style={{
+                        //styleName: Text normal;
                         fontFamily: "Inter",
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        lineHeight: "17px",
+                        fontSize: "16px",
+                        fontWeight: "400",
+                        lineHeight: "24px",
                         letterSpacing: "-0.20000000298023224px",
                         textAlign: "center",
-                        color: "#EB001B",
                       }}
                     >
-                      -25%
+                      {s.category}
                     </Typography>
+                  </Card>
+                  <Card
+                    style={{
+                      width: "61px",
+                      height: "28px",
+                      // top: 190px
+                      // left: 57px
+                      padding: "3px 13px 4px 13px",
+                      borderRadius: "29px",
+                      border: "none",
+                      gap: "10px",
+                    }}
+                  >
+                    <Card
+                      style={{ width: "35px", height: "17px", border: "none" }}
+                    >
+                      <Typography
+                        style={{
+                          fontFamily: "Inter",
+                          fontSize: "14px",
+                          fontWeight: "500",
+                          lineHeight: "17px",
+                          letterSpacing: "-0.20000000298023224px",
+                          textAlign: "center",
+                          color: "#EB001B",
+                        }}
+                      >
+                        -25%
+                      </Typography>
+                    </Card>
                   </Card>
                 </Card>
               </Card>
-            </Card>
+            </Link>
           );
         })}
       </Col>

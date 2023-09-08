@@ -41,7 +41,7 @@ export default function Section8() {
           height: "82px",
           // top: 2924px
           // left: 131px
-          border: "1px solid blue",
+          // border: "1px solid blue",
           display: "flex",
           flexWrap: "wrap",
         }}
@@ -57,6 +57,7 @@ export default function Section8() {
                   // left: 1087px
                   // position: "relative",
                   display: "flex",
+                  border: "none",
                 }}
               >
                 <Card.Img
@@ -76,6 +77,7 @@ export default function Section8() {
                     height: "24px",
                     left: "39px",
                     position: "absolute",
+                    border: "none",
                   }}
                 >
                   <Typography
@@ -122,39 +124,6 @@ export default function Section8() {
           }
         )}
       </Col>
-      {/* <Row>Suppliers by region</Row>
-      <Row>
-        {["AE", "AU", "US", "RU", "IT", "DK", "FR", "AE", "CN", "GB"].map(
-          (e) => {
-            return (
-              <Col lg={2} md={4} sm={8}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "",
-                      border: "1px solid red",
-                      height: "70px",
-                      margin: "20px",
-                    }}
-                  >
-                    {console.log(e)}
-                    <img src={`https://flagsapi.com/${e}/flat/32.png`} />
-                    Arabic Emirates <br />
-                    shopename.ae
-                  </div>
-                </div>
-              </Col>
-            );
-          }
-        )}
-      </Row> */}
     </Container>
   );
 }

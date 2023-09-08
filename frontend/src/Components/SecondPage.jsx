@@ -23,8 +23,12 @@ function valuetext(value) {
 }
 
 export default function SecondPage() {
+  const [searchparam] = useSearchParams();
   const val = useParams().category;
   console.log(val);
+  let searchTerm = searchparam.get("search");
+  console.log(searchparam.get("search"));
+  const products = [];
   const [value, setValue] = useState([2000, 3200]);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -463,9 +467,37 @@ export default function SecondPage() {
           // border: "1px solid red",
         }}
       >
-        {categories.map((e) => (
+        {searchTerm ? console.log(searchTerm) : ""}
+        {searchTerm
+          ? categories
+              .filter(({ title, category }) =>
+                title.toLowerCase().includes(searchTerm)
+              )
+              .filter(
+                ({ title }) =>
+                  !searchTerm || title.toLowerCase().includes(searchTerm)
+              )
+              .map((product) => <PreviewContainer category={product} />)
+          : categories
+              .filter(
+                ({ title }) =>
+                  !searchTerm || title.toLowerCase().includes(searchTerm)
+              )
+              .map((product) => <PreviewContainer category={product} />)}
+        {searchTerm
+          ? categories
+              .filter(({ title }) => {
+                console.log(title);
+                console.log(title.toLowerCase().includes(searchTerm));
+                return title.toLowerCase().includes(searchTerm);
+              })
+              .map((product) => <PreviewContainer category={product} />)
+          : ""}
+        {console.log(products)}
+        {console.log(categories)}
+        {/* {categories.map((e) => (
           <PreviewContainer category={e} />
-        ))}
+        ))} */}
       </Container>
     </Container>
   );

@@ -9,7 +9,7 @@ export default function Section10() {
         height: "190px",
         top: "3052px",
         position: "absolute",
-        border: "1px solid green",
+        // border: "1px solid green",
       }}
     >
       <Row>
@@ -17,10 +17,10 @@ export default function Section10() {
           lg={{ offset: 2.5, span: 6, offset: 2.5 }}
           md={{ offset: 3, span: 6 }}
           sm={{ offset: 1, span: 10 }}
-          style={{ border: "1px solid red" }}
+          style={{ top: "40px", position: "relative" }}
         >
-          <h4 className="text-center">Subscribe on our newsletter</h4>
-          <p className="pb-2 text-center">
+          <h4 className="text-center mb-2">Subscribe on our newsletter</h4>
+          <p className="pb-2 text-center mb-2">
             Get daily news on upcoming offers from many suppliers all over the
             world
           </p>
@@ -29,9 +29,9 @@ export default function Section10() {
             lg={{ offset: 2, span: 8 }}
             md={{ offset: 3, span: 6 }}
             sm={{ offset: 1, span: 10 }}
-            style={{ border: "1px solid red", display: "flex" }}
+            style={{ display: "flex" }}
           >
-            <Col style={{ border: "1px solid green" }} lg={8}>
+            <Col lg={8}>
               <div class="relative ">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                   <svg

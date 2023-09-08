@@ -15,6 +15,7 @@ export default function CartPage() {
         border: "1px solid blue",
       }}
     >
+      <CartComponent />
       <Container
         style={{ width: "1440px", height: "86px", border: "1px solid red" }}
       ></Container>
@@ -372,7 +373,6 @@ export default function CartPage() {
           position: "absolute",
         }}
       ></Container>
-      <CartPage />
     </Container>
   );
 }

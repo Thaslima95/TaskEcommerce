@@ -13,11 +13,6 @@ import { Typography } from "@mui/material";
 export default function Section5() {
   return (
     <Container
-      // style={{
-      //   backgroundImage: `url(${BgImage})`,
-      //   height: "400px",
-      //   backgroundSize: "cover",
-      // }}
       style={{
         width: "1180px",
         height: "420px",

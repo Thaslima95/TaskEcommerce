@@ -165,7 +165,6 @@ export default function SingleProduct() {
             <RelatedProducts />
           </Col>
         </Row>
-        <Row></Row>
       </Container>
       <SingleProductSide />
     </>

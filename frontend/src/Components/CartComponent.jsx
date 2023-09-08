@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
+import { Form } from "react-bootstrap";
 
 export default function CartComponent() {
   return (
@@ -108,7 +109,7 @@ export default function CartComponent() {
           $78.99
         </Typography>
       </Card.Text>
-      {/* <Form.Select
+      <Form.Select
         style={{
           width: "123px",
           height: "40px",
@@ -116,7 +117,7 @@ export default function CartComponent() {
           left: "717px",
           position: "absolute",
         }}
-      ></Form.Select> */}
+      ></Form.Select>
     </Card>
   );
 }

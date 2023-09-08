@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useLocation } from "react-router-dom";
 
-function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+function handleClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
@@ -25,7 +25,7 @@ export default function BreadCrumbComponent() {
       underline="hover"
       key="1"
       color="inherit"
-      href="/"
+      to="/"
       onClick={handleClick}
     >
       Home

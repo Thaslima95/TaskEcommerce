@@ -8,7 +8,6 @@ import Section6 from "./Section6";
 import Section7 from "./Section7";
 import Section8 from "./Section8";
 import Section10 from "./Section10";
-import Section11 from "./Section11";
 
 import Footer2 from "./Footer2";
 import Section3part2 from "./Section3part2";
@@ -26,15 +25,6 @@ export default function Home() {
       <Section8 />
       <Section10 />
       <Footer2 />
-      {/* 
-      
-      
-      <Section6 />
-      
-      
-       */}
-
-      {/*  */}
     </>
   );
 }

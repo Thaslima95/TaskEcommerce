@@ -10,6 +10,7 @@ import SecondPage from "./SecondPage";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import BestTabComponent from "./BestTabComponent";
+import BreadCrumbComponent from "./BreadCrumbComponent";
 
 export default function FilterComponent() {
   const categoryname = useParams().category;
@@ -24,34 +25,54 @@ export default function FilterComponent() {
       .then((json) => setCategories(json));
   }, []);
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <BestTabComponent />
-      <Grid container sx={{ top: "300px", position: "absolute" }} spacing={2}>
-        <Grid item xs={3} sx={{ border: "1px solid green" }}>
-          {/* <SecondPage valescheck={location.state} /> */}
+    <Grid
+      xs
+      md={10}
+      container
+      sx={{
+        top: "180px",
+        position: "absolute",
+        marginLeft: "130px",
+      }}
+    >
+      <Grid item xs={12} md={12} sx={{}}>
+        <BreadCrumbComponent />
+      </Grid>
+      <Grid item xs={12} md={12} sx={{ display: "flex" }}>
+        <Grid item xs={12} md={3} sx={{}}>
+          Left
         </Grid>
-        <Grid
-          xs={8}
-          sx={{ border: "1px solid green" }}
-          columns={{ sm: 8, md: 3, xs: 3 }}
-        >
+        <Grid item xs={12} md={9} sx={{}}>
           <Grid
-            container
-            spacing={{ xs: 2, md: 1, lg: 1 }}
-            columns={{ sm: 10, md: 10, xs: 4 }}
+            item
+            xs={12}
+            md={11}
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+              justifyItems: "center",
+            }}
           >
+            <BestTabComponent />
+          </Grid>
+
+          <Grid xs={12} md={12} sx={{ display: "flex", flexWrap: "wrap" }}>
             {categories &&
               categories.map((e) => {
                 return (
                   <Grid
                     item
-                    md={3}
-                    spacing={2}
-                    sx={{
-                      // border: "1px solid blue",
-                      paddingRight: 5,
-                      marginLeft: 3,
-                    }}
+                    md={4}
+                    spacing={1}
+                    sx={
+                      {
+                        // border: "1px solid blue",
+                      }
+                    }
                   >
                     <Responsive products={e} />
                   </Grid>
@@ -60,6 +81,6 @@ export default function FilterComponent() {
           </Grid>
         </Grid>
       </Grid>
-    </Box>
+    </Grid>
   );
 }

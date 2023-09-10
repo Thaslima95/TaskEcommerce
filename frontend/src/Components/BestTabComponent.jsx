@@ -13,6 +13,7 @@ import { Typography } from "@mui/material";
 import { Card } from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
 
 export default function BestTabComponent() {
   const categoryname = useParams().category;
@@ -30,109 +31,69 @@ export default function BestTabComponent() {
   };
   return (
     <>
-      <Container
-        style={{
-          border: "1px solid Black",
-          width: "920px",
-          height: "62px",
-          top: "207px",
-          left: "390px",
-          borderRadius: "6px",
-          border: "1px",
-          position: "absolute",
-        }}
-      ></Container>
-      <FormGroup
-        style={{
-          width: "144px",
-          height: "36px",
-          top: "221px",
-          left: "897px",
-          padding: "6px 16px 6px 0px",
-          position: "absolute",
-        }}
-      >
-        <FormControlLabel
+      <Grid item xs={12} md={6}>
+        {categories.length} items in
+        <strong>{categoryname}</strong>
+      </Grid>
+      <Grid item xs={12} md={6} sx={{ display: "flex", gap: "20px" }}>
+        <FormGroup
           style={{
-            width: "34px",
-            height: "24px",
-            padding: "2px 13px 2px 1px",
-          }}
-          control={<Checkbox />}
-        />
-        <Card.Text style={{ width: "94px", height: "19px" }}>
-          <Typography
-            style={{
-              fontFamily: "Inter",
-              fontSize: "16px",
-              fontWeight: "400",
-              lineHeight: "19px",
-              letterSpacing: "0px",
-              textAlign: "left",
-              color: "#1C1C1C",
-            }}
-          >
-            Verified only
-          </Typography>
-        </Card.Text>
-      </FormGroup>
-      <Container
-        style={{
-          width: "172px",
-          height: "40px",
-          top: "218px",
-          left: "1042px",
-          position: "absolute",
-        }}
-      >
-        <Form.Select>
-          <option>Featured</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </Form.Select>
-      </Container>
-      <Card.Text
-        style={{
-          width: "251px",
-          height: "19px",
-          top: "229px",
-          left: "409px",
-          position: "absolute",
-        }}
-      >
-        <Typography
-          style={{
-            //styleName: Title-H6;
-            fontFamily: "Inter",
-            fontSize: "16px",
-            fontWeight: "400",
-            lineHeight: "19px",
-            letterSpacing: "0px",
-            textAlign: "left",
+            width: "144px",
+            height: "36px",
 
-            //styleName: Text-base;
+            padding: "6px 16px 6px 0px",
           }}
         >
-          {categories.length} items in
-          <strong>{categoryname}</strong>
-        </Typography>
-      </Card.Text>
-      <ButtonGroup
-        style={{
-          width: "76px",
-          height: "40px",
-          top: "218px",
-          left: "1224px",
-          position: "absolute",
-        }}
-        aria-label="Basic example"
-      >
-        <TableRowsIcon />
-        <Link to={`/filter/${categoryname}`}>
-          <GridViewIcon />
-        </Link>
-      </ButtonGroup>
+          <FormControlLabel
+            style={{
+              width: "34px",
+              height: "24px",
+              padding: "2px 13px 2px 1px",
+            }}
+            control={<Checkbox />}
+          />
+          <Card.Text style={{ width: "94px", height: "19px" }}>
+            <Typography
+              style={{
+                fontFamily: "Inter",
+                fontSize: "16px",
+                fontWeight: "400",
+                lineHeight: "19px",
+                letterSpacing: "0px",
+                textAlign: "left",
+                color: "#1C1C1C",
+              }}
+            >
+              Verified only
+            </Typography>
+          </Card.Text>
+        </FormGroup>
+        <Container
+          style={{
+            width: "172px",
+            height: "40px",
+          }}
+        >
+          <Form.Select>
+            <option>Featured</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Form.Select>
+        </Container>
+        <ButtonGroup
+          style={{
+            width: "76px",
+            height: "40px",
+          }}
+          aria-label="Basic example"
+        >
+          <TableRowsIcon />
+          <Link to={`/filter/${categoryname}`}>
+            <GridViewIcon />
+          </Link>
+        </ButtonGroup>
+      </Grid>
     </>
   );
 }

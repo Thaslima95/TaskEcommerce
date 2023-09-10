@@ -24,6 +24,12 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LayoutCollapse from "./LayoutCollapse";
 import BrandComponent from "./BrandComponent";
+import { Grid } from "@mui/material";
+import NavTabComponent from "./NavTabComponent";
+import Responsive from "./Responsive";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 function valuetext(value) {
   return `$${value}`;
 }
@@ -86,233 +92,99 @@ export default function SecondPage({ valuescheck }) {
   };
   return (
     <>
-      <Container>
-        <BreadCrumbComponent style={{ border: "2px solid black" }} />
-        <Container
-          style={{
-            width: "240px",
-            height: "1448px",
-            top: "208px",
-            left: "132px",
-            borderRadius: "6px",
-            // border: "1px solid red",
-            position: "absolute",
-          }}
-        >
-          <Card
-            style={{
-              width: "230px",
-              height: "264px",
-              // top: 456px
-              // left: 132px
-              border: "1px",
-            }}
-          >
-            {" "}
-            <Card.Title
-              style={{
-                width: "73px",
-                height: "19px",
-                top: "14px",
-                position: "relative",
-              }}
-            >
-              <Typography
-                style={{
-                  //styleName: Title-H6;
-                  fontFamily: "Inter",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  lineHeight: "19px",
-                  letterSpacing: "0px",
-                  textAlign: "left",
-                }}
-              >
-                Brands
-              </Typography>
-            </Card.Title>
-            <Card
-              style={{
-                width: "24px",
-                height: "24px",
-                top: "-20px",
-                left: "180px",
-                padding: "8.295000076293945px 6px 8.295000076293945px 6px",
-                border: "3px solid red",
-              }}
-              onClick={() =>
-                brands == "none" ? setBrands("flex") : setBrands("none")
-              }
-            >
-              <ArrowDropDown
-                style={{
-                  width: "40px",
-                  height: "70px",
-                  // height: "7.409999847412109px",
-                  top: "8.2950439453125px",
-                  left: "6px",
-                  position: "relative",
-                  color: "black",
-                }}
-                size="70"
-                onClick={() =>
-                  brands == "none" ? setBrands("flex") : setBrands("none")
-                }
-              />
-            </Card>
-            <Box sx={{ alignItems: "flex-start", display: `${brands}` }}>
-              <FormControl error>
-                {/* <FormLabel>brandnames</FormLabel> */}
-                <FormGroup>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        value="Samsung"
-                        checked={brandnames.includes("Samsung")}
-                        onChange={handleBrandChange}
-                      />
-                    }
-                    label="Samsung"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        value="Nokia"
-                        checked={brandnames.includes("Nokia")}
-                        onChange={handleBrandChange}
-                      />
-                    }
-                    label="Nokia"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        value="Micromax"
-                        checked={brandnames.includes("Micromax")}
-                        onChange={handleBrandChange}
-                      />
-                    }
-                    label="Micromax"
-                  />
-                </FormGroup>
-              </FormControl>
-            </Box>
-          </Card>
-        </Container>
-        <BestTabComponent />
-        <Container
-          style={{
-            width: "920px",
-            height: "1430px",
-            top: "289px",
-            left: "390px",
-            position: "absolute",
-            // border: "1px solid red",
-          }}
-        >
-          {searchTerm ? console.log(searchTerm) : ""}
-          {searchTerm
-            ? categories
-                .filter(({ title, category }) =>
-                  title.toLowerCase().includes(searchTerm)
-                )
-                .filter(
-                  ({ title }) =>
-                    !searchTerm || title.toLowerCase().includes(searchTerm)
-                )
-                .map((product) => {
-                  return <PreviewContainer category={product} />;
-                })
-            : categories
-                .filter(
-                  ({ title }) =>
-                    !searchTerm || title.toLowerCase().includes(searchTerm)
-                )
-                .map((product) => {
-                  return <PreviewContainer category={product} />;
-                })}
-
-          {/* {categories.map((e) => (
-          <PreviewContainer category={e} />
-        ))} */}
-        </Container>
-        {/* <Footer2 /> */}
-        <PaginationComponent />
-      </Container>
-      {/* {layout.map((e) => {
-        return <LayoutCollapse title={e} />;
-      })} */}
-      <Card
-        style={{
-          width: "230px",
-          height: "48px",
-          top: "208px",
-          left: "132px",
-          padding: "12px 0px 12px 0px",
-          border: "none",
+      <Grid
+        xs
+        md={10}
+        container
+        sx={{
+          border: "2px solid green",
+          top: "180px",
           position: "absolute",
+          marginLeft: { md: "130px" },
         }}
       >
-        <Card.Text
-          style={{
-            width: "73px",
-            height: "19px",
-            top: "14px",
-            position: "relative",
-          }}
+        <Grid item xs={12} md={12} sx={{ border: "2px solid red" }}>
+          <BreadCrumbComponent />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={12}
+          sx={{ border: "2px solid red", display: "flex" }}
         >
-          <Typography
-            style={{
-              //styleName: Title-H6;
-              fontFamily: "Inter",
-              fontSize: "16px",
-              fontWeight: "600",
-              lineHeight: "19px",
-              letterSpacing: "0px",
-              textAlign: "left",
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{
+              display: { xs: "none", md: "block" },
+              border: "3px solid green",
             }}
           >
-            Category
-          </Typography>
-        </Card.Text>
-      </Card>
-
-      <Nav
-        style={hide ? { display: "block" } : { display: "none" }}
-        activeKey={location.pathname}
-      >
-        {listcategory.map((e) => {
-          return (
-            <Link to={`/category/${e}`}>
-              <Nav.Item
-                style={{
-                  width: "240px",
-                  height: "36px",
-                  top: "180px",
-                  left: "132px",
-                  padding: "9px 11px 8px 0px",
-                  position: "relative",
-                }}
-              >
-                {e}
-              </Nav.Item>
-            </Link>
-          );
-        })}
-      </Nav>
-      <Card.Img
-        style={{
-          width: "24px",
-          height: "24px",
-          top: "230px",
-          left: "340px",
-          padding: "8.295000076293945px 6px 8.295000076293945px 6px",
-          position: "absolute",
-        }}
-        src={Vector}
-        onClick={() => setHide(!hide)}
-      />
-      <BrandComponent />
+            Left
+          </Grid>
+          <Grid item xs={12} md={9} sx={{ border: "3px solid red" }}>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                border: "3px solid green",
+                justifyContent: "center",
+                alignContent: "center",
+                alignItems: "center",
+                justifyItems: "center",
+              }}
+            >
+              <BestTabComponent />
+            </Grid>
+            <Grid item xs={12} sx={{ display: { xs: "block", md: "none" } }}>
+              <PopupState variant="popover" popupId="demo-popup-menu">
+                {(popupState) => (
+                  <React.Fragment>
+                    <Button variant="contained" {...bindTrigger(popupState)}>
+                      Show More
+                    </Button>
+                    <Menu {...bindMenu(popupState)}>
+                      <MenuItem onClick={popupState.close}>Profile</MenuItem>
+                      <MenuItem onClick={popupState.close}>My account</MenuItem>
+                      <MenuItem onClick={popupState.close}>Logout</MenuItem>
+                    </Menu>
+                  </React.Fragment>
+                )}
+              </PopupState>
+            </Grid>
+            <Grid item xs={12} md={8}>
+              Item 1
+            </Grid>
+            <Grid item xs={12} md={8}>
+              {searchTerm ? console.log(searchTerm) : ""}
+              {searchTerm
+                ? categories
+                    .filter(({ title, category }) =>
+                      title.toLowerCase().includes(searchTerm)
+                    )
+                    .filter(
+                      ({ title }) =>
+                        !searchTerm || title.toLowerCase().includes(searchTerm)
+                    )
+                    .map((product) => {
+                      return <PreviewContainer category={product} />;
+                    })
+                : categories
+                    .filter(
+                      ({ title }) =>
+                        !searchTerm || title.toLowerCase().includes(searchTerm)
+                    )
+                    .map((product) => {
+                      return <PreviewContainer category={product} />;
+                    })}
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   );
 }

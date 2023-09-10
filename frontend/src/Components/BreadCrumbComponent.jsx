@@ -44,15 +44,7 @@ export default function BreadCrumbComponent() {
     </Typography>,
   ];
   return (
-    <Container
-      style={{
-        width: "1440px",
-        height: "64px",
-        top: "142px",
-        padding: "20px 896px 20px 133px",
-        position: "absolute",
-      }}
-    >
+    <Container style={{}}>
       <Stack spacing={2}>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}

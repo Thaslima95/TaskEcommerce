@@ -12,6 +12,7 @@ import { Form } from "react-bootstrap";
 import { Typography } from "@mui/material";
 import { Card } from "react-bootstrap";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { Link } from "react-router-dom";
 
 export default function BestTabComponent() {
   const categoryname = useParams().category;
@@ -128,7 +129,9 @@ export default function BestTabComponent() {
         aria-label="Basic example"
       >
         <TableRowsIcon />
-        <GridViewIcon />
+        <Link to={`/filter/${categoryname}`}>
+          <GridViewIcon />
+        </Link>
       </ButtonGroup>
     </>
   );

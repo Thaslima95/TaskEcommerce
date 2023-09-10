@@ -21,6 +21,9 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CartPage from './Components/CartPage';
 import SingleGrid from './Components/SingleGrid';
+import GridContainer from './Components/GridContainer'
+import FilterComponent from './Components/FilterComponent';
+import CartPage2 from './Components/CartPage2';
 
 
 function App() {
@@ -33,10 +36,12 @@ function App() {
     <Route path="/category/:category" element={<SecondPage/>}/>
     <Route path="/third" element={<ThirdPage/>}/>
     <Route path="/single/:id" element={<SingleProduct/>}/>
-
+<Route path="/filter/:category" element={<FilterComponent/>}/>
     </Route>
     <Route path="/cart" element={<CartPage/>}/>
-    <Route path="/singlegrid" element={<SingleGrid/>}/>
+    <Route path="/grid" element={<GridContainer/>}/>
+    <Route path="/cart2" element={<CartPage2/>}/>
+     
     
   
   </Routes>

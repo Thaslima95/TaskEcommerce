@@ -28,7 +28,7 @@ function valuetext(value) {
   return `$${value}`;
 }
 
-export default function SecondPage() {
+export default function SecondPage({ valuescheck }) {
   const layout = [
     "Category",
     "Brands",

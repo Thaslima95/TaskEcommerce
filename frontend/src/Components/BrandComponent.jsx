@@ -5,12 +5,14 @@ import { Card } from "react-bootstrap";
 import Vector from "../Vector.png";
 import FormGroupCheckbox from "./FormGroupCheckbox";
 import { useState } from "react";
+import MUICheckbox from "./MUICheckbox.jsx";
+import { List } from "@mui/material";
 
 export default function BrandComponent() {
   const [hide, setHide] = useState(false);
   return (
     <>
-      <Container
+      {/* <Container
         style={{
           width: "230px",
           height: "264px",
@@ -76,10 +78,36 @@ export default function BrandComponent() {
           position: "absolute",
         }}
       ></Container>
-      {hide &&
-        ["Samsung", "Huawei", "Lenovo", "Oppo"].map((e) => {
-          return <FormGroupCheckbox name={e} />;
-        })}
+      <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+        {hide &&
+          [109, 114, 64].map((e) => {
+            // return <FormGroupCheckbox name={e} />;
+            return (
+              <>
+                <ListItem key={price}>
+                  <ListItemButton
+                    role={undefined}
+                    onClick={handleToggle(price)}
+                    dense
+                  >
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={checked.indexOf(price) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ "aria-labelledby": labelId }}
+                      />
+                    </ListItemIcon>
+
+                    <ListItemText id={labelId} primary={`${price}`} />
+                  </ListItemButton>
+                </ListItem>
+              </>
+            );
+          })}
+      </List>
+    </> */}
     </>
   );
 }

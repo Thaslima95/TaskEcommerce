@@ -1,25 +1,34 @@
 import React from "react";
+import { Grid } from "@mui/material";
 import EcommLogo from "../EcommLogo.svg";
-import { Container, Row, Col } from "react-bootstrap";
+import { Box } from "@mui/material";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
-import Button from "react-bootstrap/Button";
-import { BorderLeft } from "@mui/icons-material";
-import { Box } from "@mui/material";
+import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 import { User } from "@styled-icons/remix-fill/User";
 import { Message } from "@styled-icons/boxicons-regular/Message";
 import Typography from "@mui/material/Typography";
 import { HeartFill } from "styled-icons/bootstrap";
 import { CartFill } from "styled-icons/bootstrap";
-import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
-
-import { Profile } from "styled-icons/remix-line";
+import Drawer from "@mui/material/Drawer";
 import NavbarComponent from "./NavbarComponent";
-export default function HeaderComponent() {
+import { Outlet } from "react-router-dom";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import TableRows from "@mui/icons-material/TableRows";
+
+type Anchor = "left";
+
+export default function HeaderComponent2() {
   const [categories, setCategories] = useState([]);
   const [specificCategories, setSpecificCategories] = useState([]);
   const [, setSearchparam] = useSearchParams();
@@ -28,52 +37,106 @@ export default function HeaderComponent() {
       .then((res) => res.json())
       .then((json) => setCategories(json));
   }, [categories]);
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor: Anchor) => (
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
   return (
     <>
-      <Container
-        style={{
-          // border: "1px solid red",
-          width: "1440px",
-          height: "86px",
-          margin: "0px",
-          padding: "0px",
-        }}
-      >
-        <Row>
-          <Col xl={2} md={4} sm={6}>
-            <a href="#">
-              <Card.Img
-                style={{
-                  width: "150px",
-                  height: "46px",
-                  paddingLeft: "10px",
-                  position: "absolute",
-                  top: "20px",
-                  left: "130px",
-                }}
-                variant="top"
-                src={EcommLogo}
-              />
-            </a>
-          </Col>
-          <Col
-            style={{
-              display: "flex",
-              width: "665px",
-              height: "40px",
-              position: "absolute",
-              left: "326px",
-              top: "20px",
-              // border: "1px solid red",
-              margin: "0px",
-              padding: "0px",
-            }}
-            xl={6}
-            md={8}
-            sm={4}
-            className="px-0"
-          >
-            <Col xl={6}>
+      <Grid container xs md={12} sx={{ margin: "auto" }}>
+        {" "}
+        <Grid
+          md={10}
+          sx={{
+            marginLeft: "40px",
+            display: "flex",
+          }}
+        >
+          <Grid item xs md={3} sx={{}}>
+            <Box>
+              <a href="#">
+                <img
+                  style={{
+                    width: "150px",
+                    height: "46px",
+                    paddingLeft: "10px",
+                  }}
+                  variant="top"
+                  src={EcommLogo}
+                />
+              </a>
+              <div>
+                {["left"].map((anchor) => (
+                  <React.Fragment key={anchor}>
+                    <TableRows
+                      onClick={toggleDrawer(anchor, true)}
+                      sx={{ display: { md: "none", xs: "block" } }}
+                    >
+                      {anchor}
+                    </TableRows>
+                    <Drawer
+                      anchor={anchor}
+                      open={state[anchor]}
+                      onClose={toggleDrawer(anchor, false)}
+                    >
+                      {list(anchor)}
+                    </Drawer>
+                  </React.Fragment>
+                ))}
+              </div>
+            </Box>
+          </Grid>
+          <Grid item xs md={7} sx={{ display: { md: "flex" } }}>
+            <Grid item xs md={6}>
+              {" "}
               <Form.Control
                 size="md"
                 type="search"
@@ -90,8 +153,8 @@ export default function HeaderComponent() {
                   setSearchparam({ search: e.target.value.toLowerCase() });
                 }}
               />
-            </Col>
-            <Col xl={3}>
+            </Grid>
+            <Grid item xs md={3} sx={{ display: { xs: "none", md: "block" } }}>
               <Dropdown className="show dropdown">
                 <Dropdown.Toggle
                   variant="primary"
@@ -122,8 +185,9 @@ export default function HeaderComponent() {
                   ))}
                 </Dropdown.Menu>
               </Dropdown>
-            </Col>
-            <Col xl={3}>
+            </Grid>
+            <Grid item xs md={3} sx={{ display: { xs: "none", md: "block" } }}>
+              {" "}
               <Button
                 variant="primary"
                 style={{
@@ -137,99 +201,94 @@ export default function HeaderComponent() {
               >
                 Search
               </Button>
-            </Col>
-          </Col>
-          <Col
-            xl={2}
-            style={{
-              // border: "1px solid green",
-              top: "25px",
-              left: "1080px",
-              position: "absolute",
-              display: "flex",
-            }}
-          >
-            <Col
-              style={{
-                color: "#8B96A5",
-                width: "27px",
-                height: "41px",
-                // border: "1px solid red",
-              }}
+            </Grid>
+          </Grid>
+          <Grid item xs md={3} sx={{}}>
+            <Box
+              sx={{ display: "flex", justifyContent: "flex-end", gap: "30px" }}
             >
-              <User
+              <Box
                 style={{
                   color: "#8B96A5",
-                  width: "20px",
-                  height: "19px",
+                  width: "27px",
+                  height: "41px",
+                  // border: "1px solid red",
                 }}
-              />
-              <Typography style={{ fontSize: "12px" }} gutterBottom>
-                profile
-              </Typography>
-            </Col>
-            <Col
-              style={{
-                color: "#8B96A5",
-                width: "27px",
-                height: "41px",
-                // border: "1px solid red",
-              }}
-            >
-              <Message
+              >
+                <User
+                  style={{
+                    color: "#8B96A5",
+                    width: "20px",
+                    height: "19px",
+                  }}
+                />
+                <Typography style={{ fontSize: "12px" }} gutterBottom>
+                  profile
+                </Typography>
+              </Box>
+              <Box
                 style={{
                   color: "#8B96A5",
-                  width: "20px",
-                  height: "19px",
+                  width: "27px",
+                  height: "41px",
+                  // border: "1px solid red",
                 }}
-              />
-              <Typography style={{ fontSize: "12px" }} gutterBottom>
-                Message
-              </Typography>
-            </Col>
-            <Col
-              style={{
-                color: "#8B96A5",
-                width: "27px",
-                height: "41px",
-                // border: "1px solid red",
-              }}
-            >
-              <HeartFill
+              >
+                <Message
+                  style={{
+                    color: "#8B96A5",
+                    width: "20px",
+                    height: "19px",
+                  }}
+                />
+                <Typography style={{ fontSize: "12px" }} gutterBottom>
+                  Message
+                </Typography>
+              </Box>
+              <Box
                 style={{
                   color: "#8B96A5",
-                  width: "20px",
-                  height: "19px",
+                  width: "27px",
+                  height: "41px",
+                  // border: "1px solid red",
                 }}
-              />
-              <Typography style={{ fontSize: "12px" }} gutterBottom>
-                Orders
-              </Typography>
-            </Col>
-            <Col
-              style={{
-                color: "#8B96A5",
-                width: "27px",
-                height: "41px",
-                // border: "1px solid red",
-              }}
-            >
-              <CartFill
+              >
+                <HeartFill
+                  style={{
+                    color: "#8B96A5",
+                    width: "20px",
+                    height: "19px",
+                  }}
+                />
+                <Typography style={{ fontSize: "12px" }} gutterBottom>
+                  Orders
+                </Typography>
+              </Box>
+              <Box
                 style={{
                   color: "#8B96A5",
-                  width: "20px",
-                  height: "19px",
+                  width: "27px",
+                  height: "41px",
+                  // border: "1px solid red",
                 }}
-              />
-              <Typography style={{ fontSize: "12px" }} gutterBottom>
-                Cart
-              </Typography>
-            </Col>
-          </Col>
-        </Row>
-        <NavbarComponent />
-      </Container>
-      <Outlet />
+              >
+                <CartFill
+                  style={{
+                    color: "#8B96A5",
+                    width: "20px",
+                    height: "19px",
+                  }}
+                />
+                <Typography style={{ fontSize: "12px" }} gutterBottom>
+                  Cart
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+        {/* <NavbarComponent /> */}
+        <Outlet />
+      </Grid>
     </>
   );
 }

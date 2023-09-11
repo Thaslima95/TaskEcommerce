@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 import Vector from "../Vector.png";
 import FormGroupCheckbox from "./FormGroupCheckbox";
 import { useState } from "react";
-import MUICheckbox from "./MUICheckbox.jsx";
+
 import { List } from "@mui/material";
 
 export default function BrandComponent() {

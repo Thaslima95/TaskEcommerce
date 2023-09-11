@@ -20,10 +20,14 @@ import { Card } from "react-bootstrap";
 import PaginationComponent from "./PaginationComponent";
 
 import Vector from "../Vector.png";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { List } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import LayoutCollapse from "./LayoutCollapse";
-import BrandComponent from "./BrandComponent";
+
 import { Grid } from "@mui/material";
 import NavTabComponent from "./NavTabComponent";
 import Responsive from "./Responsive";
@@ -34,7 +38,7 @@ function valuetext(value) {
   return `$${value}`;
 }
 
-export default function SecondPage({ valuescheck }) {
+export default function SecondPage() {
   const layout = [
     "Category",
     "Brands",
@@ -43,6 +47,24 @@ export default function SecondPage({ valuescheck }) {
     "Condition",
     "Rating",
   ];
+
+  const [checked, setChecked] = React.useState([]);
+
+  const handleToggle = (price) => (e) => {
+    e.preventDefault();
+    console.log(price);
+    const currentIndex = checked.indexOf(price);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(price);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
+
   const location = useLocation();
   const [searchparam] = useSearchParams();
   const val = useParams().category;
@@ -54,6 +76,7 @@ export default function SecondPage({ valuescheck }) {
   const [categories, setCategories] = useState([]);
   const [listcategory, setListCategory] = useState([]);
   const [hide, setHide] = useState(false);
+  const [brandhide, setBrandHide] = useState(false);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
@@ -69,27 +92,7 @@ export default function SecondPage({ valuescheck }) {
     setValue(newValue);
   };
   const [display, setDisplay] = useState("hidden");
-  const [brands, setBrands] = useState("none");
-  const [brandnames, setBrandnames] = useState([]);
-  const [feature, setFeature] = useState("none");
-  const [featuretype, setFeatureType] = useState([]);
-  console.log(brandnames);
-  const handleBrandChange = (event) => {
-    const index = brandnames.indexOf(event.target.value);
-    if (index === -1) {
-      setBrandnames([...brandnames, event.target.value]);
-    } else {
-      setBrandnames(brandnames.filter((b) => b !== event.target.value));
-    }
-  };
-  const handleFeatureChange = (event) => {
-    const index = featuretype.indexOf(event.target.value);
-    if (index === -1) {
-      setFeatureType([...featuretype, event.target.value]);
-    } else {
-      setFeatureType(featuretype.filter((b) => b !== event.target.value));
-    }
-  };
+
   return (
     <>
       <Grid
@@ -97,33 +100,119 @@ export default function SecondPage({ valuescheck }) {
         md={10}
         container
         sx={{
-          border: "2px solid green",
           top: "180px",
           position: "absolute",
           marginLeft: { md: "130px" },
         }}
       >
-        <Grid item xs={12} md={12} sx={{ border: "2px solid red" }}>
+        <Grid item xs={12} md={12} sx={{}}>
           <BreadCrumbComponent />
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          sx={{ border: "2px solid red", display: "flex" }}
-        >
+        <Grid item xs={12} md={12} sx={{ display: "flex" }}>
           <Grid
             item
             xs={12}
-            md={3}
+            md={2}
             sx={{
               display: { xs: "none", md: "block" },
-              border: "3px solid green",
             }}
           >
-            Left
+            <Grid item>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Typography
+                  style={{
+                    //styleName: Title-H6;
+                    fontFamily: "Inter",
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    lineHeight: "19px",
+                    letterSpacing: "0px",
+                    textAlign: "left",
+                  }}
+                >
+                  Category
+                </Typography>
+                <img
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    padding: "8.295000076293945px 6px 8.295000076293945px 6px",
+                  }}
+                  src={Vector}
+                  onClick={() => setHide(!hide)}
+                />
+              </Box>
+              <Box>
+                <Nav
+                  style={hide ? { display: "block" } : { display: "none" }}
+                  activeKey={location.pathname}
+                >
+                  {listcategory.map((e) => {
+                    return (
+                      <Link to={`/category/${e}`}>
+                        <Nav.Item
+                          style={{
+                            width: "240px",
+                            height: "36px",
+
+                            padding: "9px 11px 8px 0px",
+                          }}
+                        >
+                          {e}
+                        </Nav.Item>
+                      </Link>
+                    );
+                  })}
+                </Nav>
+              </Box>
+            </Grid>
+            <Grid>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Typography>Brand</Typography>
+                <img
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    padding: "8.295000076293945px 6px 8.295000076293945px 6px",
+                  }}
+                  src={Vector}
+                  onClick={() => setBrandHide(!brandhide)}
+                />
+              </Box>
+              <Box>
+                <List
+                  style={brandhide ? { display: "block" } : { display: "none" }}
+                >
+                  {[109, 114, 64].map((price) => {
+                    const labelId = `checkbox-list-label-${price}`;
+
+                    return (
+                      <ListItem key={price}>
+                        <ListItemButton
+                          role={undefined}
+                          onClick={handleToggle(price)}
+                          dense
+                        >
+                          <ListItemIcon>
+                            <Checkbox
+                              edge="start"
+                              checked={checked.indexOf(price) !== -1}
+                              tabIndex={-1}
+                              disableRipple
+                              inputProps={{ "aria-labelledby": labelId }}
+                            />
+                          </ListItemIcon>
+
+                          <ListItemText id={labelId} primary={`${price}`} />
+                        </ListItemButton>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={9} sx={{ border: "3px solid red" }}>
+          <Grid item xs={12} md={9} sx={{}}>
             <Grid
               item
               xs={12}
@@ -131,7 +220,7 @@ export default function SecondPage({ valuescheck }) {
               sx={{
                 display: "flex",
                 flexWrap: "wrap",
-                border: "3px solid green",
+
                 justifyContent: "center",
                 alignContent: "center",
                 alignItems: "center",
@@ -157,7 +246,12 @@ export default function SecondPage({ valuescheck }) {
               </PopupState>
             </Grid>
             <Grid item xs={12} md={8}>
-              Item 1
+              {checked &&
+                checked.map((e) => (
+                  <h4>
+                    {e} <button>remove</button>
+                  </h4>
+                ))}
             </Grid>
             <Grid item xs={12} md={8}>
               {searchTerm ? console.log(searchTerm) : ""}
@@ -181,6 +275,19 @@ export default function SecondPage({ valuescheck }) {
                     .map((product) => {
                       return <PreviewContainer category={product} />;
                     })}
+              {checked.length != 0
+                ? checked.map((e) =>
+                    categories
+                      .filter((p) => p.price == e)
+                      .map((e) => {
+                        return (
+                          <>
+                            <PreviewContainer category={e} />
+                          </>
+                        );
+                      })
+                  )
+                : " "}
             </Grid>
           </Grid>
         </Grid>

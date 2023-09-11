@@ -13,15 +13,13 @@ import SecondPage from './Components/SecondPage';
 import NavbarComponent from './Components/NavbarComponent';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './Components/Home';
-import ThirdPage from './Components/ThirdPage';
 import SingleProduct from './Components/SingleProduct';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CartPage from './Components/CartPage';
-import SingleGrid from './Components/SingleGrid';
-import GridContainer from './Components/GridContainer'
+
 import FilterComponent from './Components/FilterComponent';
 import CartPage2 from './Components/CartPage2';
 
@@ -34,12 +32,11 @@ function App() {
   <Route path='/' element={<HeaderComponent/>}>
    <Route  index  element={<Home/>}/>
     <Route path="/category/:category" element={<SecondPage/>}/>
-    <Route path="/third" element={<ThirdPage/>}/>
     <Route path="/single/:id" element={<SingleProduct/>}/>
 <Route path="/filter/:category" element={<FilterComponent/>}/>
     </Route>
     <Route path="/cart" element={<CartPage/>}/>
-    <Route path="/grid" element={<GridContainer/>}/>
+    
     <Route path="/cart2" element={<CartPage2/>}/>
      
     

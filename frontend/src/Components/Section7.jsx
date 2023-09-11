@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import SvgComponent from "./SvgComponent";
+
 import { Typography } from "@mui/material";
 import Two from "../2.jpg";
 import Three from "../3.jpg";

@@ -3,20 +3,17 @@ import { Container, Col, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import { ArrowDropDown } from "@styled-icons/material-outlined/ArrowDropDown";
 import { useState, useEffect } from "react";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
+
 import Checkbox from "@mui/material/Checkbox";
 import { Box, Button, Typography } from "@mui/material";
-import { FormControl } from "@mui/material";
-import Slider from "@mui/material/Slider";
+
 import PreviewContainer from "./PreviewContainer";
-import { Row } from "react-bootstrap";
+
 import BestTabComponent from "./BestTabComponent";
-import BestTabComponent2 from "./BestTabComponent2";
+
 import { useParams, useSearchParams } from "react-router-dom";
 import BreadCrumbComponent from "./BreadCrumbComponent";
-import SideBarComponent from "./SideBarComponent";
-import { Card } from "react-bootstrap";
+
 import PaginationComponent from "./PaginationComponent";
 
 import Vector from "../Vector.png";
@@ -168,7 +165,7 @@ export default function SecondPage() {
             </Grid>
             <Grid>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography>Brand</Typography>
+                <Typography>Price</Typography>
                 <img
                   style={{
                     width: "24px",
